@@ -1,3 +1,47 @@
 page-home {
+    .getStart {
+        background: url('../assets/imgs/pexels-photo.jpg') no-repeat center center fixed;
+        // background: url('../../img/getstart.png');
+        background-size: cover;
+    }
 
+    .btn_left_home button {
+        background-color: #00a0c6;
+        display: block;
+        float: left;
+        height: 317px;
+        margin: 0;
+        padding: 0;
+        width: 50%; 
+    }
+
+    .btn_left_home button:hover, .btn_right_home button:hover {
+        background: #fea621;
+    }
+
+    .btn_right_home button {
+        background-color: #00a0c6;
+        display: block;
+        float: right;
+        height: 317px;
+        margin: 0;
+        padding: 0;
+        width: 50%; 
+    }
+
+    .logo_home {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .titre_home {
+        color: #1f1f1f;
+        text-align: center;
+    }
 }
+
+ion-app.md [padding] .scroll-content {
+    padding: 0;
+}
+
+
