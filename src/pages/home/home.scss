@@ -7,11 +7,12 @@ page-home {
 
     .btn_left_home button {
         background-color: #00a0c6;
+        bottom: 0;
         display: block;
-        float: left;
         height: 317px;
         margin: 0;
         padding: 0;
+        position: absolute;
         width: 50%; 
     }
 
@@ -21,11 +22,13 @@ page-home {
 
     .btn_right_home button {
         background-color: #00a0c6;
+        bottom: 0;
         display: block;
-        float: right;
         height: 317px;
         margin: 0;
         padding: 0;
+        position: absolute;
+        right: 0;
         width: 50%; 
     }
 
