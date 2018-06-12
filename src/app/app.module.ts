@@ -10,6 +10,9 @@ import { HarmonyPage } from '../pages/harmony/harmony';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AboutPage } from '../pages/about/about';
 import { HowtousePage } from '../pages/howtouse/howtouse';
+import { SearchPage } from '../pages/search/search';
+import { AudioProvider } from '../providers/audio/audio';
+import { SpotifyProvider } from '../providers/spotify/spotify';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { HowtousePage } from '../pages/howtouse/howtouse';
     AboutPage,
     HowtousePage,
     HarmonyPage,
-    TabsPage
+    TabsPage,
+    SearchPage
   ],
   imports: [
     BrowserModule,
@@ -31,12 +35,15 @@ import { HowtousePage } from '../pages/howtouse/howtouse';
     AboutPage,
     HowtousePage,
     HarmonyPage,
-    TabsPage
+    TabsPage,
+    SearchPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AudioProvider,
+    SpotifyProvider
   ]
 })
 export class AppModule {}

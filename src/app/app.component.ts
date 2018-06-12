@@ -26,7 +26,7 @@ export class MyApp {
   @ViewChild('nav') nav: NavController;
 
   constructor(platform: Platform, private menuCtrl: MenuController,
-    statusBar: StatusBar, 
+    statusBar: StatusBar,
     splashScreen: SplashScreen) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
