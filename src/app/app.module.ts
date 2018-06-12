@@ -13,6 +13,7 @@ import { HowtousePage } from '../pages/howtouse/howtouse';
 import { SearchPage } from '../pages/search/search';
 import { AudioProvider } from '../providers/audio/audio';
 import { SpotifyProvider } from '../providers/spotify/spotify';
+import { NoteProvider } from '../providers/note/note';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { SpotifyProvider } from '../providers/spotify/spotify';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AudioProvider,
-    SpotifyProvider
+    SpotifyProvider,
+    NoteProvider
   ]
 })
 export class AppModule {}
