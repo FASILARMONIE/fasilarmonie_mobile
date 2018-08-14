@@ -14,6 +14,9 @@ import { SearchPage } from '../pages/search/search';
 import { AudioProvider } from '../providers/audio/audio';
 import { SpotifyProvider } from '../providers/spotify/spotify';
 import { NoteProvider } from '../providers/note/note';
+import { HttpClientModule } from '@angular/common/http';
+import { ToolsMusicProvider } from '../providers/tools-music/tools-music';
+import { AccordPage } from '../pages/accord/accord';
 
 @NgModule({
   declarations: [
@@ -23,9 +26,11 @@ import { NoteProvider } from '../providers/note/note';
     HowtousePage,
     HarmonyPage,
     TabsPage,
-    SearchPage
+    SearchPage,
+    AccordPage
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(MyApp)
   ],
@@ -37,7 +42,8 @@ import { NoteProvider } from '../providers/note/note';
     HowtousePage,
     HarmonyPage,
     TabsPage,
-    SearchPage
+    SearchPage,
+    AccordPage
   ],
   providers: [
     StatusBar,
@@ -45,7 +51,8 @@ import { NoteProvider } from '../providers/note/note';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AudioProvider,
     SpotifyProvider,
-    NoteProvider
+    NoteProvider,
+    ToolsMusicProvider
   ]
 })
 export class AppModule {}

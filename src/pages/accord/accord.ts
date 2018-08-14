@@ -1,18 +1,27 @@
 import { Component } from '@angular/core';
-import { Note } from '../../models/note.model';
-
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { NoteProvider } from '../../providers/note/note';
+//import provider
 import { AudioProvider } from '../../providers/audio/audio';
-import {AccordPage} from '../../pages/accord/accord';
 
+//import model
+
+
+
+
+/**
+ * Generated class for the AccordPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @IonicPage()
 @Component({
-  selector: 'page-harmony',
-  templateUrl: 'harmony.html',
+  selector: 'page-accord',
+  templateUrl: 'accord.html',
 })
-export class HarmonyPage {
+export class AccordPage {
+
   /**
    * import en dur des data
    */
@@ -34,34 +43,29 @@ export class HarmonyPage {
     return result
   }
   public octave: any[] = [];
-  public noteSelected: boolean = false;
+  //declaration necessaire
   public note: any;
+  public accord: any[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public noteProvider: NoteProvider, public audioProvider: AudioProvider) {
-    this.octave = this.Octave(261.6255653005986);
-   
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public audioProvider: AudioProvider) {
+    this.note = this.navParams.get('note');
+    console.log(this.note);
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad HarmonyPage');
-    this.notes = this.index;
+    console.log('ionViewDidLoad AccordPage');
+    this.loadAccord();
   }
 
-
-  choixNote(note: any) {
-    console.log(note);
-    this.audioProvider.stop()
-    if (note != null) {
-      this.noteSelected = true;
-      this.navCtrl.push(AccordPage, {note: note})
-    }
-
-
+  loadAccord() {
+    let octave = this.Octave(this.note.frequence);
+    this.accord = this.Dominante7eme.map(note => octave[note]);
+    this.accord.map(note => {
+      note.oscillator = this.audioProvider.playFrequence(note.frequence);
+      note.playing = true;
+    })
   }
-
-
-
-
-
 
 }

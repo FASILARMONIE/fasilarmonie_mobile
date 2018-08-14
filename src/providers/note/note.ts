@@ -9,15 +9,22 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class NoteProvider {
-
+  public notes: any;
   constructor(public http: HttpClient) {
     console.log('Hello NoteProvider Provider');
   }
 
 
   loadNotes() {
-    this.http.get("assets/data/note.json").subscribe(data => {
-
+    this.http.get("assets/data/notes.json").subscribe(data => {
+      //console.log(data);
+      this.notes = data;
     })
+  }
+
+  getNotes(){
+    console.log(this.notes);
+    
+    return this.notes;
   }
 }

@@ -8,4 +8,30 @@
 
 
 <ion-content padding>
+  <ion-list>
+    <!-- <ion-label>
+      Notes
+    </ion-label>
+<ion-select [(ngModel)]="note">
+  <ion-option *ngFor="let note of notes" value="{{note}}">{{note}} </ion-option>
+</ion-select> -->
+
+    <ion-item *ngFor="let note of notes" (click)="choixNote(note)">{{note}}  </ion-item>
+    <ion-item>
+      <ion-label>Gamme</ion-label>
+      <ion-select>
+        <ion-option>Majeur</ion-option>
+        <ion-option>Mineur</ion-option>
+      </ion-select>
+    </ion-item>
+   
+  </ion-list>
+
+  <ion-list *ngIf="noteSelected">
+    Affichage des notes
+    <ion-item *ngFor="let note of accord" (click)="play(note)">
+
+    </ion-item>
+  </ion-list>
+ 
 </ion-content>

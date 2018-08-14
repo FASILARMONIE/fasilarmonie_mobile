@@ -1,17 +1,46 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-/*
-  Generated class for the AudioProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
+declare var AudioContext
+declare var webkitAudioContext
+declare var GainNode
+declare var OscillatorNode
+declare var Float32Array
+
 @Injectable()
 export class AudioProvider {
 
-  constructor(public http: HttpClient) {
+  private audioContext: AudioContext
+  public volume: GainNode
+  public oscillators: OscillatorNode[] = []
+
+  constructor() {
     console.log('Hello AudioProvider Provider');
+    this.audioContext = new (AudioContext || webkitAudioContext)
+    this.volume = this.audioContext.createGain()
+    this.volume.connect(this.audioContext.destination)
+    this.volume.gain.setTargetAtTime(0.05, this.audioContext.currentTime, 0.01)
   }
+
+
+
+  playFrequence(hz: number = 440.0) {
+    let oscillator = this.audioContext.createOscillator()
+    oscillator.type = 'sine'
+    oscillator.frequency.setTargetAtTime(hz, this.audioContext.currentTime, 0.01)
+    oscillator.connect(this.volume)
+    oscillator.start(this.audioContext.currentTime)
+    this.oscillators.push(oscillator)
+    return oscillator
+  }
+
+  stop() {
+    this.oscillators.map(oscillator => {
+      oscillator.stop(this.audioContext.currentTime)
+      oscillator.disconnect()
+      oscillator = null
+    })
+  }
+
 
 }

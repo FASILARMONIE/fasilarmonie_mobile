@@ -1,3 +1,3 @@
 export class Note {
-    public note: Array<any>;
+    public note: string;
 }

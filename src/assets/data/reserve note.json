@@ -1,7 +1,5 @@
-[
-    {
-        "note": "Do"
-    },
+
+    [
     {
         "note": "Do#"
     },
@@ -9,10 +7,10 @@
         "note": "Re"
     },
     {
-        "note": "Re#"
+        "note": ""
     },
     {
-        "note":"Mi"
+        "note": "Mi"
     },
     {
         "note": "Mi#"
@@ -24,7 +22,7 @@
         "note": "Fa#"
     },
     {
-        "note":"Sol"
+        "note": "Sol"
     },
     {
         "note": "Sol#"
@@ -36,7 +34,7 @@
         "note": "La#"
     },
     {
-        "note":"Si"
+        "note": "Si"
     },
     {
         "note": "La#"
