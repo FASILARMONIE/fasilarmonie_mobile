@@ -30,9 +30,10 @@ export class AccordPage {
   public index = ['DO', 'DO#', 'RE', 'RE#', 'MI', 'FA', 'FA#', 'SOL', 'SOL#', 'LA', 'LA#', 'SI'];
   public accordage = { index: 9, frequence: 440.0 };
   public indexLA: number = 9;
-  public frequence : number = 440.0;
+  public frequence: number = 440.0;
   public majeure = [0, 4, 7];
   public Dominante7eme = this.majeure.concat([10]);
+  public notePlaying: boolean = false;
 
   public Octave = (note: any) => {
     let result: any[] = []
@@ -56,25 +57,34 @@ export class AccordPage {
     this.note = this.navParams.get('note');
     console.log(this.note.frequence);
     console.log(this.note);
-    
+
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AccordPage');
-   // this.loadAccord();
+    this.loadAccord();
   }
 
   loadAccord() {
-// let octave = this.Octave(this.note.frequence);
-let octave = this.Octave(this.note);
+    let octave = this.Octave(this.note.frequence);
     this.accord = this.Dominante7eme.map(note => octave[note]);
     this.accord.map(note => {
-console.log(note);
-
-      // note.oscillator = this.audioProvider.playFrequence(note.frequence);
-      // note.playing = true;
+      console.log(note);
+      note.oscillator = this.audioProvider.prepareFrequence(note.frequence);
+      note.playing = false;
+      console.log(note);
     })
   }
 
+  onPlay(note) {
+    if (!note.playing) {
+      note.oscillator = this.audioProvider.playFrequence(note.frequence);
+      note.playing = true;
+
+    } else {
+      note.oscillator.stop();
+      note.playing = false;
+    }
+  }
 }

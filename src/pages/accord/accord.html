@@ -19,8 +19,9 @@
 <ion-grid>
   <ion-row>
     <ion-col>
-      <div *ngFor="let note of accord" (click)="onPlay(note)">
-      </div>
+      <button ion-button *ngFor="let note of accord" (click)="onPlay(note)">
+        {{note.index}} {{note.frequence}}
+      </button>
     </ion-col>
   </ion-row>
 </ion-grid>

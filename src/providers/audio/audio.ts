@@ -22,7 +22,13 @@ export class AudioProvider {
     this.volume.gain.setTargetAtTime(0.05, this.audioContext.currentTime, 0.01)
   }
 
-
+prepareFrequence(hz: number = 440.0){
+  let oscillator = this.audioContext.createOscillator()
+    oscillator.type = 'sine'
+    oscillator.frequency.setTargetAtTime(hz, this.audioContext.currentTime, 0.01)
+    this.oscillators.push(oscillator)
+    return oscillator
+}
 
   playFrequence(hz: number = 440.0) {
     let oscillator = this.audioContext.createOscillator()
