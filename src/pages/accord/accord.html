@@ -14,13 +14,12 @@
 
 
 <ion-content padding>
-<div>{{note}}</div>
+<div>{{note.index}} {{note.frequence}}</div>
 
 <ion-grid>
   <ion-row>
     <ion-col>
       <div *ngFor="let note of accord" (click)="onPlay(note)">
-        {{note}}
       </div>
     </ion-col>
   </ion-row>

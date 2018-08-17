@@ -16,7 +16,8 @@
   <ion-option *ngFor="let note of notes" value="{{note}}">{{note}} </ion-option>
 </ion-select> -->
 
-    <ion-item *ngFor="let note of notes" (click)="choixNote(note)">{{note}}  </ion-item>
+    <ion-item *ngFor="let note of octave"  (click)="choixNote(note)"> {{note.index}} {{note.frequence}}  
+  </ion-item>
     <ion-item>
       <ion-label>Gamme</ion-label>
       <ion-select>
