@@ -17,6 +17,7 @@ import { NoteProvider } from '../providers/note/note';
 import { HttpClientModule } from '@angular/common/http';
 import { ToolsMusicProvider } from '../providers/tools-music/tools-music';
 import { AccordPage } from '../pages/accord/accord';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AccordPage } from '../pages/accord/accord';
   imports: [
     HttpClientModule,
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -53,6 +55,7 @@ import { AccordPage } from '../pages/accord/accord';
     SpotifyProvider,
     NoteProvider,
     ToolsMusicProvider
+
   ]
 })
 export class AppModule {}

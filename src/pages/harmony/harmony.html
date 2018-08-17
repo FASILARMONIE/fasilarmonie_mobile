@@ -8,31 +8,37 @@
 
 
 <ion-content padding>
-  <ion-list>
-    <!-- <ion-label>
-      Notes
-    </ion-label>
-<ion-select [(ngModel)]="note">
-  <ion-option *ngFor="let note of notes" value="{{note}}">{{note}} </ion-option>
-</ion-select> -->
+  <form #f="ngForm" [formGroup]="tonaliteData" (ngSubmit)="onSubmit()">
+    <ion-list>
 
-    <ion-item *ngFor="let note of octave"  (click)="choixNote(note)"> {{note.index}} {{note.frequence}}  
-  </ion-item>
-    <ion-item>
-      <ion-label>Gamme</ion-label>
-      <ion-select>
-        <ion-option>Majeur</ion-option>
-        <ion-option>Mineur</ion-option>
-      </ion-select>
-    </ion-item>
-   
-  </ion-list>
+      <ion-item>
+        <ion-label>
+          Notes
+        </ion-label>
+        <ion-select formControlName="note">
+          <ion-option *ngFor="let note of octave" value="{{note.frequence}} {{note.frequence}}" >{{note.index}}</ion-option>
+        </ion-select>
+      </ion-item>
+       <ion-item *ngFor="let note of octave"  (click)="choixNote(note)"> {{note.index}} {{note.frequence}}  
+  </ion-item> 
 
+      <ion-item>
+        <ion-label>Gamme</ion-label>
+        <ion-select  formControlName="gammeSelected">
+          <ion-option value="majeur">Majeur</ion-option>
+          <ion-option value="mineur">Mineur</ion-option>
+        </ion-select>
+      </ion-item>
+      <button ion-button> GO!</button>
+
+    </ion-list>
+  </form>
+  <!-- 
   <ion-list *ngIf="noteSelected">
     Affichage des notes
     <ion-item *ngFor="let note of accord" (click)="play(note)">
 
     </ion-item>
-  </ion-list>
- 
+  </ion-list> -->
+
 </ion-content>

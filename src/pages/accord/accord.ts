@@ -32,7 +32,9 @@ export class AccordPage {
   public indexLA: number = 9;
   public frequence: number = 440.0;
   public majeure = [0, 4, 7];
-  public Dominante7eme = this.majeure.concat([10]);
+  public mineure = [0,3,7];
+  public dominante7emeMaj = this.majeure.concat([10]);
+  public dominante7emeMin = this.mineure.concat([10]);
   public notePlaying: boolean = false;
 
   public Octave = (note: any) => {
@@ -68,7 +70,7 @@ export class AccordPage {
 
   loadAccord() {
     let octave = this.Octave(this.note.frequence);
-    this.accord = this.Dominante7eme.map(note => octave[note]);
+    this.accord = this.dominante7emeMaj.map(note => octave[note]);
     this.accord.map(note => {
       console.log(note);
       note.oscillator = this.audioProvider.prepareFrequence(note.frequence);
