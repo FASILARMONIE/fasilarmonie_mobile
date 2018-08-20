@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToolsMusicProvider } from '../providers/tools-music/tools-music';
 import { AccordPage } from '../pages/accord/accord';
 import { FormsModule } from '@angular/forms';
+import { AutoCompleteModule } from 'ionic2-auto-complete';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    FormsModule
+    FormsModule,
+    AutoCompleteModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

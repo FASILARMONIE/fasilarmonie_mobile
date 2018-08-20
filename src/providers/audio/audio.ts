@@ -48,5 +48,8 @@ prepareFrequence(hz: number = 440.0){
     })
   }
 
+  stopAll(){
+   this.audioContext.close();
+  }
 
 }
