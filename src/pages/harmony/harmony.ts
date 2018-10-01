@@ -45,8 +45,8 @@ export class HarmonyPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public noteProvider: NoteProvider, public audioProvider: AudioProvider, private FormBuilder: FormBuilder) {
     this.tonaliteData = this.FormBuilder.group({
-      frequence: [''],
-      gammeSelected: ['']
+      frequence: ['', Validators.compose([Validators.required])],
+      gammeSelected: ['', Validators.compose([Validators.required])]
     })
 
     console.log(this.tonaliteData);
@@ -69,7 +69,7 @@ export class HarmonyPage {
 
   onSubmit() {
     if (this.tonaliteData.valid) {
-      console.log(this.tonaliteData);
+      console.log(this.tonaliteData.value);
       this.navCtrl.push(AccordPage, { note: this.tonaliteData.value })
     }
   }

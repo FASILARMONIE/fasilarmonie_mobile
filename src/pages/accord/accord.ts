@@ -27,64 +27,86 @@ export class AccordPage {
    */
   //TODO faire nettoyage
   public notes: any;
-  public index = ['DO', 'DO#', 'RE', 'RE#', 'MI', 'FA', 'FA#', 'SOL', 'SOL#', 'LA', 'LA#', 'SI','DO', 'DO#', 'RE', 'RE#', 'MI', 'FA'];
+  public index = ['DO', 'DO#', 'RE', 'RE#', 'MI', 'FA', 'FA#', 'SOL', 'SOL#', 'LA', 'LA#', 'SI', 'DO', 'DO#', 'RE', 'RE#', 'MI', 'FA'];
+  public voices = ['Basse', 'Ténor', 'Alto', 'Soprano'];
   public accordage = { index: 9, frequence: 440.0 };
-  public indexLA: number = 9;
   public frequence: number = 440.0;
   public majeure = [0, 4, 7];
   public mineure = [0, 3, 7];
   public dominante7emeMaj = this.majeure.concat([10]);
   public dominante7emeMin = this.mineure.concat([10]);
   public notePlaying: boolean = false;
+  public nbOctave = [55, 110, 220, 440, 880, 1780];
+  // public nbOctave = [{1:55},{2:110}, {3:220}, {4:440}, {5:880}, {6:1780}];
+  public nbOctaveIndex = 3;
 
-  public Octave = (note: any) => {
-    let result: any[] = []
-    const semitones = Math.round(12 * Math.log(note / 440) * Math.LOG2E)
-    // console.log(semitones)
-    for (let i = semitones; i < 18 - Math.abs(semitones); i++) {
-      //a verifier
-      let index = (this.accordage.index + i) % 12;
-      result.push({ index: this.index[index], frequence: 2 ** (i / 12) * 440 })
-      // result.push(2 ** (j / 12) * 440)
-    }
-    return result
-  }
   public octave: any[] = [];
   //declaration necessaire
   public note: any;
+  public noteSelected: any;
   public accord: any[] = [];
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public audioProvider: AudioProvider) {
     this.note = this.navParams.get('note');
     // console.log(this.note.frequence);
-
-
+    console.log(this.nbOctave[3]);
 
   }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AccordPage');
-    this.loadAccord();
-    //console.log(this.note);
+    this.loadAccord(this.note);
+    console.log(this.note);
+    this.audioProvider.prepareAudioContext();
+
   }
 
-  loadAccord() {
-    let octave = this.Octave(this.note.frequence);
-    if (this.note.gammeSelected == "M") {
-      this.accord = this.dominante7emeMaj.map(note => octave[note]);
+
+  public methodeOctave(note: any) {
+    let result: any[] = []
+    const semitones = Math.round(12 * Math.log(note / 440) * Math.LOG2E)
+    // console.log(semitones)
+    for (let i = semitones; i < 18 - Math.abs(semitones); i++) {
+      let index = (this.accordage.index + i) % 12;
+      result.push({ index: this.index[index], frequence: 2 ** (i / 12) * this.nbOctave[this.nbOctaveIndex] })
+      console.log(this.nbOctaveIndex);
+      
+    }
+    return result
+  }
+
+  loadAccord(note) {
+    this.note = note;
+    this.octave = this.methodeOctave(this.note.frequence);
+    console.log(this.octave);
+    if (this.note.gammeSelected == 1) {
+      console.log('Majeure');
+      this.accord = this.dominante7emeMaj.map(note => this.octave[note]);
     } else {
-      this.accord = this.dominante7emeMin.map(note => octave[note]);
+      console.log('mineure');
+      this.accord = this.dominante7emeMin.map(note => this.octave[note]);
     }
     this.accord.map(note => {
       console.log(note);
       this.note.oscillator = this.audioProvider.prepareFrequence(note.frequence);
-      this.note.playing = false;
+      //this.noteSelected.playing = false;
       //console.log(this.note);
     })
   }
 
   onPlay(note) {
+    this.noteSelected = note;
+    if (!this.noteSelected.playing) {
+      this.noteSelected.oscillator = this.audioProvider.playFrequence(note.frequence);
+      this.noteSelected.playing = true;
+    } else {
+      this.noteSelected.oscillator.stop();
+      this.noteSelected.playing = false;
+    }
+  }
+  /* onPlay(note) {
     this.note = note;
     if (!this.note.playing) {
       this.note.oscillator = this.audioProvider.playFrequence(note.frequence);
@@ -93,6 +115,38 @@ export class AccordPage {
       this.note.oscillator.stop();
       this.note.playing = false;
     }
+  } */
+
+  downOctave($event: any) {
+
+    if($event != null){
+      this.audioProvider.stopAll();
+
+      this.nbOctaveIndex = 2;
+      console.log(this.nbOctaveIndex);
+      this.ionViewDidLoad()
+
+    }
+  }
+  originOctave($event: any){
+    if($event != null){
+      this.audioProvider.stopAll();
+
+      this.nbOctaveIndex = 3;
+      console.log(this.nbOctaveIndex);
+      this.ionViewDidLoad();
+
+    }
+  }
+
+  upOctave($event: any) {
+    if($event != null){
+      this.audioProvider.stopAll();
+
+      this.nbOctaveIndex = 4;
+      console.log(this.nbOctaveIndex);
+    }
+      this.ionViewDidLoad();
   }
 
   ionViewWillLeave() {

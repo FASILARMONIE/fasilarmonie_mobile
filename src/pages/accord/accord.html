@@ -14,15 +14,16 @@
 
 
 <ion-content padding>
-<div>{{note.index}} {{note.frequence}}</div>
+  <!-- <div>{{note.index}} {{note.frequence}}</div> -->
+  <div class="accordContent">
+        <button class="noteButton" ion-button *ngFor="let note of accord" (click)="onPlay(note)">
+          {{note.index}}
+          <br> {{note.frequence | number:'2.2-2'}}
+        </button>
+      </div>
+    <button ion-button (click)="downOctave($event)">Diminuer</button>
+    <button ion-button (click)="originOctave($event)">Octave de base</button>
 
-<ion-grid>
-  <ion-row>
-    <ion-col>
-      <button ion-button *ngFor="let note of accord" (click)="onPlay(note)">
-        {{note.index}} {{note.frequence}}
-      </button>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+    <button ion-button (click)="upOctave($event)">Augmenter</button> 
+ 
 </ion-content>

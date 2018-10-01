@@ -18,7 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToolsMusicProvider } from '../providers/tools-music/tools-music';
 import { AccordPage } from '../pages/accord/accord';
 import { FormsModule } from '@angular/forms';
-import { AutoCompleteModule } from 'ionic2-auto-complete';
+import { SearchSpotifyProvider } from '../providers/search-spotify/search-spotify';
+import { SearchPageModule } from '../pages/search/search.module';
+import { SearchResultPage } from '../pages/search-result/search-result';
 
 @NgModule({
   declarations: [
@@ -29,14 +31,15 @@ import { AutoCompleteModule } from 'ionic2-auto-complete';
     HarmonyPage,
     TabsPage,
     SearchPage,
-    AccordPage
+    AccordPage, 
+    SearchPage, 
+    SearchResultPage
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
     FormsModule,
-    AutoCompleteModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -47,17 +50,20 @@ import { AutoCompleteModule } from 'ionic2-auto-complete';
     HarmonyPage,
     TabsPage,
     SearchPage,
-    AccordPage
+    AccordPage, 
+    SearchPage, 
+    SearchResultPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     AudioProvider,
     SpotifyProvider,
     NoteProvider,
-    ToolsMusicProvider
+    ToolsMusicProvider,
+    SearchSpotifyProvider
 
   ]
 })
-export class AppModule {}
+export class AppModule { }

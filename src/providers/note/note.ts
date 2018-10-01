@@ -15,16 +15,14 @@ export class NoteProvider {
   }
 
 
-  loadNotes() {
-    this.http.get("assets/data/notes.json").subscribe(data => {
-      //console.log(data);
-      this.notes = data;
+  loadNotes(): Promise<any> {
+    return new Promise(resolve =>{
+      this.http.get("assets/data/notes.json").subscribe(data => {
+        console.log(data);
+        resolve(data)
+      })
     })
+    
   }
 
-  getNotes(){
-    console.log(this.notes);
-    
-    return this.notes;
-  }
 }

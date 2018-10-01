@@ -13,6 +13,7 @@ import { AboutPage } from '../pages/about/about';
 import { HowtousePage } from '../pages/howtouse/howtouse';
 
 import { TabsPage } from '../pages/tabs/tabs';
+import { SpotifyProvider } from '../providers/spotify/spotify';
 
 @Component({
   templateUrl: 'app.html'
@@ -25,16 +26,30 @@ export class MyApp {
 
   @ViewChild('nav') nav: NavController;
 
-  constructor(platform: Platform, private menuCtrl: MenuController,
-    statusBar: StatusBar,
-    splashScreen: SplashScreen) {
-    platform.ready().then(() => {
+  constructor(public platform: Platform, private menuCtrl: MenuController,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen,
+    private spotifyProvider: SpotifyProvider) {
+
+  }
+
+
+  initializeApp() {
+    this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
     });
+    this.spotifyProvider.getToken();
+   
+
+    
+
+
+
   }
+
 
   onLoad(page: any) {
     this.nav.setRoot(page);

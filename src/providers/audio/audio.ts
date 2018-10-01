@@ -16,6 +16,10 @@ export class AudioProvider {
 
   constructor() {
     console.log('Hello AudioProvider Provider');
+   this.prepareAudioContext();
+  }
+
+  prepareAudioContext(){
     this.audioContext = new (AudioContext || webkitAudioContext)
     this.volume = this.audioContext.createGain()
     this.volume.connect(this.audioContext.destination)
@@ -49,7 +53,7 @@ prepareFrequence(hz: number = 440.0){
   }
 
   stopAll(){
-   this.audioContext.close();
+   this.audioContext.suspend();
   }
 
 }

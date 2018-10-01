@@ -1,38 +1,37 @@
 <ion-header>
-
   <ion-navbar>
-    <ion-title>harmony</ion-title>
+    <ion-title>Fasilar'monie </ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-  <form #f="ngForm" [formGroup]="tonaliteData" (ngSubmit)="onSubmit()">
-    <ion-list>
-
-      <ion-item>
-        <ion-label>
-          Notes
-        </ion-label>
-        <ion-select formControlName="frequence">
-          <ion-option *ngFor="let note of octave" value="{{note.frequence}}" >{{note.index}}</ion-option>
-        </ion-select>
-      <!-- </ion-item>
+  <div class="harmonyContent">
+    <form #f="ngForm" [formGroup]="tonaliteData" (ngSubmit)="onSubmit()">
+      <ion-list>
+        <div class="searchInput">
+          <ion-item>
+            <ion-label>
+              Notes
+            </ion-label>
+            <ion-select formControlName="frequence">
+              <ion-option *ngFor="let note of octave" value="{{note.frequence}}">{{note.index}}</ion-option>
+            </ion-select>
+            <!-- </ion-item>
        <ion-item *ngFor="let note of octave"  (click)="choixNote(note)"> {{note.index}} {{note.frequence}}   -->
-  </ion-item> 
-
-      <ion-item>
-        <ion-label>Gamme</ion-label>
-        <ion-select  formControlName="gammeSelected">
-          <ion-option value="M">Majeur</ion-option>
-          <ion-option value="m">Mineur</ion-option>
-        </ion-select>
-      </ion-item>
-      <button ion-button> GO!</button>
-
-    </ion-list>
-  </form>
+          </ion-item>
+          <ion-item>
+            <ion-label>Gamme</ion-label>
+            <ion-select formControlName="gammeSelected">
+              <ion-option value="1">Majeur</ion-option>
+              <ion-option value="2">Mineur</ion-option>
+            </ion-select>
+          </ion-item>
+          <button ion-button [disabled]="!tonaliteData.valid"> GO!</button>
+        </div>
+      </ion-list>
+    </form>
+  </div>
   <!-- 
   <ion-list *ngIf="noteSelected">
     Affichage des notes

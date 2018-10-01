@@ -14,5 +14,42 @@
 
 
 <ion-content padding>
-<div>inégration d'un ionic2-autocomplete</div>
+ <!--  <div>
+      <input [formControl]="inputField" type="text" id="keyword" placeholder="Search for Artists..." autofocus>
+
+  </div>
+
+
+
+<div > 
+  <ul>
+    <div *ngFor="let result of labels">
+
+    <li>{{result.name}} {{result.album.album_type}} {{result.album.artists[0].name}}</li>
+  </div>
+  </ul>
+</div> -->
+
+<div>
+  <form #f="ngForm" [formGroup]="trackData" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="content">
+<button ion-button type="submit" block >Recherche</button>
+  </form>
+</div>
+<div *ngIf="searchList != undefined"> 
+   
+    <button (click)="getKeyFromSpotify()"> <span *ngIf="id != false">note</span></button>
+    <ul>
+      <div *ngFor="let result of searchList">
+  
+      <li (click)="trackKey(result.id)">
+        <img src="{{result.album.images[0]?.url}}" alt="image-artist" width="50" height="50">
+        {{result.artists[0].name}}
+        
+      </li>
+      
+    </div>
+    </ul>
+  </div>
+
 </ion-content>

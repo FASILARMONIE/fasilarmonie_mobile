@@ -1,3 +1,25 @@
 page-harmony {
+    .harmonyContent{
+        position: absolute;
+        display: block;
+        transform: translateX(-50%);
+        left: 50%;
+        top: 15%;
+        width: calc(100% - 100px);
+       
+    }
+    .searchInput{
+        max-width: 400px;
+			display: block;
+			margin: 5px auto;
+        &.Select{
+			margin: 10px 0;
 
+        }
+    }
+    .button{
+        display: block;
+        width: 150px;
+        margin: 15px auto;
+    }
 }
