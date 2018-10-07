@@ -1,12 +1,13 @@
 page-home {
     .getStart {
-        background: url('../assets/imgs/pexels-photo.jpg') no-repeat center center fixed;
+       // background: url('../assets/imgs/pexels-photo.jpg') no-repeat center center fixed;
         // background: url('../../img/getstart.png');
+        background-color: darkgrey;
         background-size: cover;
     }
 
     .btn_left_home button {
-        background-color: #00a0c6;
+        background-color: grey;
         bottom: 0;
         display: block;
         height: 317px;
@@ -21,7 +22,7 @@ page-home {
     }
 
     .btn_right_home button {
-        background-color: #00a0c6;
+        background-color: grey;
         bottom: 0;
         display: block;
         height: 317px;

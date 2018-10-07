@@ -45,6 +45,7 @@ export class AccordPage {
   public note: any;
   public noteSelected: any;
   public accord: any[] = [];
+  public notePlayed: boolean = false;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public audioProvider: AudioProvider) {
@@ -101,9 +102,11 @@ export class AccordPage {
     if (!this.noteSelected.playing) {
       this.noteSelected.oscillator = this.audioProvider.playFrequence(note.frequence);
       this.noteSelected.playing = true;
+      this.notePlayed = true;
     } else {
       this.noteSelected.oscillator.stop();
       this.noteSelected.playing = false;
+      this.notePlayed = true;
     }
   }
   /* onPlay(note) {

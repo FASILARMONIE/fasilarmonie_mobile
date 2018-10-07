@@ -18,9 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToolsMusicProvider } from '../providers/tools-music/tools-music';
 import { AccordPage } from '../pages/accord/accord';
 import { FormsModule } from '@angular/forms';
-import { SearchSpotifyProvider } from '../providers/search-spotify/search-spotify';
 import { SearchPageModule } from '../pages/search/search.module';
-import { SearchResultPage } from '../pages/search-result/search-result';
 
 @NgModule({
   declarations: [
@@ -33,7 +31,6 @@ import { SearchResultPage } from '../pages/search-result/search-result';
     SearchPage,
     AccordPage, 
     SearchPage, 
-    SearchResultPage
   ],
   imports: [
     HttpClientModule,
@@ -52,7 +49,6 @@ import { SearchResultPage } from '../pages/search-result/search-result';
     SearchPage,
     AccordPage, 
     SearchPage, 
-    SearchResultPage
   ],
   providers: [
     StatusBar,
@@ -62,7 +58,6 @@ import { SearchResultPage } from '../pages/search-result/search-result';
     SpotifyProvider,
     NoteProvider,
     ToolsMusicProvider,
-    SearchSpotifyProvider
 
   ]
 })

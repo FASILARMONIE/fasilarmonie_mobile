@@ -1,14 +1,26 @@
 page-accord {
     .accordContent{
-        position: absolute;
-        display: block;
-        transform: translateX(-50%);
-        left: 50%;
+        //position: absolute;
+        display: flex;
+        display: inline;
+        //transform: translateX(-50%);
+       // left: 50%;
         top: 15%;
-        width: calc(100% - 100px);
+       // width: 75%;
+       // height: 75%
     }
     .noteButton{
-         width: 200px;
-        height: 200px;
+       background-color: grey;
+       .orange{
+           background-color: darkorange;
+       }
+         width: 50%;
+        height: 50%;
+        flex-wrap: wrap;
+    }
+    .buttonOctave{
+// width: 33%;
+height: 10%;
+width: 30%;
     }
 }
