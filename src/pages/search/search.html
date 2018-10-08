@@ -15,14 +15,32 @@
 
 <ion-content padding class="searchContent">
 
-  <div class="searchInput" >
+  <div class="searchInput">
     <form #f="ngForm" [formGroup]="trackData" (ngSubmit)="onSubmit()">
       <input type="text" formControlName="content" placeholder="tapez le titre de votre chanson...">
       <button ion-button type="submit" block>Recherche</button>
     </form>
   </div>
-  <ion-grid *ngFor="let result of searchList">
-  <ion-row>
+  <!-- <ion-grid > -->
+  <ion-card>
+    <ion-list *ngFor="let result of searchList" class="result">
+      <button ion-item (click)="goAccord(result)">
+        <ion-col>
+          <img class="album" src="{{result.picture.url}}" alt="image_album" />
+        </ion-col>
+        <ion-col >
+          <div class="trackInfo">{{result.name}} <br>
+            {{result.artist}}
+
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="keyMode">{{getKeyFromSpotify(result.key)}} {{getModeFromSpotify(result.mode)}}</div>
+        </ion-col>
+      </button>
+    </ion-list>
+  </ion-card>
+  <!-- <ion-row>
       <ion-col col-4>
           <img src="{{result.picture.url}}" alt="image_album" width="100%" height="90%" />      </ion-col>
       <ion-col col-4>
@@ -34,10 +52,10 @@
       <ion-col col-4>
           <button ion-button class="noteButton"> {{getKeyFromSpotify(result.key)}} <br>{{getModeFromSpotify(result.mode)}} </button>      </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
 
 
-<!-- 
+  <!-- 
   <ion-card *ngFor="let result of searchList">
     <img src="{{result.picture.url}}" alt="image_album" />
     <ion-card-content>

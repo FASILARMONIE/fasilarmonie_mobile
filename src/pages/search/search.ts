@@ -4,6 +4,7 @@ import { SpotifyProvider } from '../../providers/spotify/spotify';
 import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import 'rxjs/add/operator/map';
 import { NoteProvider } from '../../providers/note/note';
+import { AccordPage } from '../accord/accord';
 
 /**
  * Generated class for the SearchPage page.
@@ -22,6 +23,7 @@ export class SearchPage {
   inputField: FormControl = new FormControl();
   public labels = new Array();
 
+  public index = ['DO', 'DO#', 'RE', 'RE#', 'MI', 'FA', 'FA#', 'SOL', 'SOL#', 'LA', 'LA#', 'SI'];
 
   /* nouvelle version */
   private trackData: FormGroup;
@@ -29,6 +31,9 @@ export class SearchPage {
   public searchList: Array<any>;
   public trackInfo = new Array();
   public keySearch: any;
+  public accordage = { index: 9, frequence: 440.0 };
+
+  public note: any;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public spotifyProvider: SpotifyProvider, public formBuilder: FormBuilder, public noteProvider: NoteProvider) {
@@ -60,32 +65,34 @@ export class SearchPage {
 
   }
 
+
+
   getKeyFromSpotify(data: any) {
 
     switch (data) {
-      case 1:
+      case 0:
         return 'DO';
-      case 2:
+      case 1:
         return 'DO#'
-      case 3:
+      case 2:
         return 'RE';
-      case 4:
+      case 3:
         return 'RE#';
-      case 5:
+      case 4:
         return 'MI';
-      case 6:
+      case 5:
         return 'FA';
-      case 7:
+      case 6:
         return 'FA#';
-      case 8:
+      case 7:
         return 'SOL';
-      case 9:
+      case 8:
         return 'SOL#';
-      case 10:
+      case 9:
         return 'LA';
-      case 11:
+      case 10:
         return 'LA#';
-      case 12:
+      case 11:
         return 'SI';
       default:
         break;
@@ -101,5 +108,13 @@ export class SearchPage {
       default:
         break;
     }
+  }
+  
+
+  goAccord(data: any) {
+    this.note = {frequence: this.index[data.key], gammeSelected: data.mode};
+
+    this.navCtrl.push(AccordPage, { note: this.note});
+
   }
 }

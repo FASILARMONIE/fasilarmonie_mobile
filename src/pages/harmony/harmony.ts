@@ -60,11 +60,11 @@ export class HarmonyPage {
     this.octave = this.Octave(261.6255653005986)
   }
 
-
+/* 
   choixNote(note: any) {
     console.log(note);
     this.navCtrl.push(AccordPage, { note: note })
-  }
+  } */
 
 
   onSubmit() {

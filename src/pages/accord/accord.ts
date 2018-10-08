@@ -45,11 +45,26 @@ export class AccordPage {
   public note: any;
   public noteSelected: any;
   public accord: any[] = [];
-  public notePlayed: boolean = false;
+  public notePlayed: boolean = true;
 
+  public Octave = (note: any) => {
+    let result: any[] = []
+    const semitones = Math.round(12 * Math.log(note / 440) * Math.LOG2E)
+    for (let i = semitones; i < 12 - Math.abs(semitones); i++) {
+      let index = (this.accordage.index + i) % 12;
+      result.push({ index: this.index[index], frequence: 2 ** (i / 12) * 440 })
+    }
+    return result
+  }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public audioProvider: AudioProvider) {
     this.note = this.navParams.get('note');
+  
+     
+    
+  
+    console.log(this.note);
+    
     // console.log(this.note.frequence);
     console.log(this.nbOctave[3]);
 
@@ -57,6 +72,8 @@ export class AccordPage {
 
 
   ionViewDidLoad() {
+    this.octave = this.Octave(261.6255653005986);
+    console.log(this.octave);
     console.log('ionViewDidLoad AccordPage');
     this.loadAccord(this.note);
     console.log(this.note);
@@ -79,7 +96,25 @@ export class AccordPage {
   }
 
   loadAccord(note) {
-    this.note = note;
+    if(typeof note.frequence == "string"){
+      /* for (let index = 0; index < this.octave.length; index++) {
+       if(this.octave[index].include(this.note.frequence))
+        
+      } */
+      this.octave.forEach(element=>{
+        console.log(element);
+        if(element.index == this.note.frequence){
+          this.note = {frequence: element.frequence, gammeSelected: this.note.gammeSelected}
+          console.log(element.frequence);
+          console.log(this.note);
+          
+        }
+        
+      })
+    }else{
+      this.note = note;
+    }
+
     this.octave = this.methodeOctave(this.note.frequence);
     console.log(this.octave);
     if (this.note.gammeSelected == 1) {
@@ -106,7 +141,7 @@ export class AccordPage {
     } else {
       this.noteSelected.oscillator.stop();
       this.noteSelected.playing = false;
-      this.notePlayed = true;
+      this.notePlayed = false;
     }
   }
   /* onPlay(note) {
@@ -152,6 +187,9 @@ export class AccordPage {
       this.ionViewDidLoad();
   }
 
+  stopButton(){
+    this.audioProvider.stopAll();
+  }
   ionViewWillLeave() {
     console.log(this.note);
     this.audioProvider.stopAll();
