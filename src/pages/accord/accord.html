@@ -16,7 +16,7 @@
 <ion-content padding >
   <!-- <div>{{note.index}} {{note.frequence}}</div> -->
   <div class="accordContent">
-    <button class="noteButton"   ion-button *ngFor="let note of accord" (click)="onPlay(note)" [ngClass]="{'active': notePlayed}">
+    <button class="noteButton"   ion-button *ngFor="let note of accord" (click)="onPlay(note)" [ngClass]="isActive(note)">
        {{note.index}}
           <br> {{note.frequence | number:'2.2-2'}}
      

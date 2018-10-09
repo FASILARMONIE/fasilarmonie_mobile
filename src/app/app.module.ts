@@ -19,6 +19,8 @@ import { ToolsMusicProvider } from '../providers/tools-music/tools-music';
 import { AccordPage } from '../pages/accord/accord';
 import { FormsModule } from '@angular/forms';
 import { SearchPageModule } from '../pages/search/search.module';
+import { HTTP } from '@ionic-native/http';
+
 
 @NgModule({
   declarations: [
@@ -58,6 +60,7 @@ import { SearchPageModule } from '../pages/search/search.module';
     SpotifyProvider,
     NoteProvider,
     ToolsMusicProvider,
+    HTTP
 
   ]
 })

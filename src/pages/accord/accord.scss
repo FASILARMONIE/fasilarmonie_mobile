@@ -12,20 +12,21 @@ page-accord {
     }
     .noteButton{
        background-color: #d9d9d9;
-       .active{
-        background-color: #00ccff;
-       }
+       
          width: 45%;
          height: 45%;
          color: black;
        //flex-wrap: wrap;
     }
+    .blue{
+        background-color: #00ccff;
+       }
     .buttonOctave{
         height: 10%;
         width: 100%;
         .button{
             background-color: #d9d9d9;
-            .active{
+            .blue{
                 background-color: #00ccff;
                 
             }

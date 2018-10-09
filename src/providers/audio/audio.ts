@@ -6,11 +6,14 @@ declare var webkitAudioContext
 declare var GainNode
 declare var OscillatorNode
 declare var Float32Array
+declare global{
+  interface Window { AudioContext: any, webkitAudioContext: any}
+}
 
 @Injectable()
 export class AudioProvider {
 
-  private audioContext: AudioContext
+  private audioContext: AudioContext;
   public volume: GainNode
   public oscillators: OscillatorNode[] = []
 
@@ -20,7 +23,7 @@ export class AudioProvider {
   }
 
   prepareAudioContext(){
-    this.audioContext = new (AudioContext || webkitAudioContext)
+    this.audioContext = new (window.AudioContext || window.webkitAudioContext)
     this.volume = this.audioContext.createGain()
     this.volume.connect(this.audioContext.destination)
     this.volume.gain.setTargetAtTime(0.05, this.audioContext.currentTime, 0.01)

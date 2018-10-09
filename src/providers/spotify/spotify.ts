@@ -8,6 +8,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/observable';
 import 'rxjs/add/operator/map';
 
+import { HTTP } from '@ionic-native/http';
+
+
 /*
   Generated class for the SpotifyProvider provider.
 
@@ -28,7 +31,8 @@ export class SpotifyProvider {
   private infosTrack: any;
 
 
-  private apiToken = 'https://accounts.spotify.com/api/token'//requests refresh and access tokens
+  // private apiToken = 'https://accounts.spotify.com/api/token'//requests refresh and access tokens
+   private apiToken = '/api/token'//requests refresh and access tokens
   private client_id = ''; // Your client id
   private client_secret = ''; // Your secret
 
@@ -48,7 +52,7 @@ export class SpotifyProvider {
   public searchResults: any;
   public searchList: any;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private httpCors: HTTP) {
     console.log('Hello SpotifyProvider Provider');
   }
 

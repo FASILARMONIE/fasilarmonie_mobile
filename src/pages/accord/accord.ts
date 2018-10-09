@@ -45,7 +45,7 @@ export class AccordPage {
   public note: any;
   public noteSelected: any;
   public accord: any[] = [];
-  public notePlayed: boolean = true;
+  public notePlayed: boolean = false;
 
   public Octave = (note: any) => {
     let result: any[] = []
@@ -59,12 +59,12 @@ export class AccordPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public audioProvider: AudioProvider) {
     this.note = this.navParams.get('note');
-  
-     
-    
-  
+
+
+
+
     console.log(this.note);
-    
+
     // console.log(this.note.frequence);
     console.log(this.nbOctave[3]);
 
@@ -90,28 +90,28 @@ export class AccordPage {
       let index = (this.accordage.index + i) % 12;
       result.push({ index: this.index[index], frequence: 2 ** (i / 12) * this.nbOctave[this.nbOctaveIndex] })
       console.log(this.nbOctaveIndex);
-      
+
     }
     return result
   }
 
   loadAccord(note) {
-    if(typeof note.frequence == "string"){
+    if (typeof note.frequence == "string") {
       /* for (let index = 0; index < this.octave.length; index++) {
        if(this.octave[index].include(this.note.frequence))
         
       } */
-      this.octave.forEach(element=>{
+      this.octave.forEach(element => {
         console.log(element);
-        if(element.index == this.note.frequence){
-          this.note = {frequence: element.frequence, gammeSelected: this.note.gammeSelected}
+        if (element.index == this.note.frequence) {
+          this.note = { frequence: element.frequence, gammeSelected: this.note.gammeSelected }
           console.log(element.frequence);
           console.log(this.note);
-          
+
         }
-        
+
       })
-    }else{
+    } else {
       this.note = note;
     }
 
@@ -133,6 +133,8 @@ export class AccordPage {
   }
 
   onPlay(note) {
+    console.log(note);
+
     this.noteSelected = note;
     if (!this.noteSelected.playing) {
       this.noteSelected.oscillator = this.audioProvider.playFrequence(note.frequence);
@@ -142,6 +144,15 @@ export class AccordPage {
       this.noteSelected.oscillator.stop();
       this.noteSelected.playing = false;
       this.notePlayed = false;
+    }
+  }
+  isActive(note) {
+    if (this.noteSelected != null) {
+      if (this.noteSelected.playing == true) {
+        return 'blue';
+      }
+
+
     }
   }
   /* onPlay(note) {
@@ -157,7 +168,7 @@ export class AccordPage {
 
   downOctave($event: any) {
 
-    if($event != null){
+    if ($event != null) {
       this.audioProvider.stopAll();
 
       this.nbOctaveIndex = 2;
@@ -166,8 +177,8 @@ export class AccordPage {
 
     }
   }
-  originOctave($event: any){
-    if($event != null){
+  originOctave($event: any) {
+    if ($event != null) {
       this.audioProvider.stopAll();
 
       this.nbOctaveIndex = 3;
@@ -178,16 +189,16 @@ export class AccordPage {
   }
 
   upOctave($event: any) {
-    if($event != null){
+    if ($event != null) {
       this.audioProvider.stopAll();
 
       this.nbOctaveIndex = 4;
       console.log(this.nbOctaveIndex);
     }
-      this.ionViewDidLoad();
+    this.ionViewDidLoad();
   }
 
-  stopButton(){
+  stopButton() {
     this.audioProvider.stopAll();
   }
   ionViewWillLeave() {
