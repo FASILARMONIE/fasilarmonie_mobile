@@ -23,6 +23,7 @@ import { HTTP } from '@ionic-native/http';
 
 import { TranslateModule, TranslateService, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SettingsPage } from '../pages/settings/settings';
 
 
 
@@ -42,6 +43,7 @@ export function createTranslateLoader(http: HttpClient) {
     SearchPage,
     AccordPage, 
     SearchPage, 
+    SettingsPage
   ],
   imports: [
     HttpClientModule,
@@ -67,6 +69,7 @@ export function createTranslateLoader(http: HttpClient) {
     SearchPage,
     AccordPage, 
     SearchPage, 
+    SettingsPage
   ],
   providers: [
     StatusBar,

@@ -15,6 +15,7 @@ import { HowtousePage } from '../pages/howtouse/howtouse';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SpotifyProvider } from '../providers/spotify/spotify';
 import {TranslateService} from '@ngx-translate/core';
+import { SettingsPage } from '../pages/settings/settings';
 
 
 
@@ -26,6 +27,7 @@ export class MyApp {
   rootPage = HomePage;
   aboutPage = AboutPage;
   howtousePage = HowtousePage;
+  settingsPage = SettingsPage
 
   @ViewChild('nav') nav: NavController;
 
@@ -44,19 +46,15 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      
+
     });
     this.spotifyProvider.getToken();
-   
-
-    
-
-
-
   }
 
 
   onLoad(page: any) {
+    console.log(page);
+    
     this.nav.setRoot(page);
     this.menuCtrl.close();
   }
