@@ -14,6 +14,9 @@ import { HowtousePage } from '../pages/howtouse/howtouse';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { SpotifyProvider } from '../providers/spotify/spotify';
+import {TranslateService} from '@ngx-translate/core';
+
+
 
 @Component({
   templateUrl: 'app.html'
@@ -29,7 +32,8 @@ export class MyApp {
   constructor(public platform: Platform, private menuCtrl: MenuController,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    private spotifyProvider: SpotifyProvider) {
+    private spotifyProvider: SpotifyProvider,
+  public translate: TranslateService) {
 
   }
 
@@ -40,6 +44,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      
     });
     this.spotifyProvider.getToken();
    

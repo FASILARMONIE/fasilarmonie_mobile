@@ -14,12 +14,21 @@ import { SearchPage } from '../pages/search/search';
 import { AudioProvider } from '../providers/audio/audio';
 import { SpotifyProvider } from '../providers/spotify/spotify';
 import { NoteProvider } from '../providers/note/note';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ToolsMusicProvider } from '../providers/tools-music/tools-music';
 import { AccordPage } from '../pages/accord/accord';
 import { FormsModule } from '@angular/forms';
 import { SearchPageModule } from '../pages/search/search.module';
 import { HTTP } from '@ionic-native/http';
+
+import { TranslateModule, TranslateService, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 
 @NgModule({
@@ -39,6 +48,13 @@ import { HTTP } from '@ionic-native/http';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     FormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
