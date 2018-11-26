@@ -46,6 +46,8 @@ export class AccordPage {
   public noteSelected: any;
   public accord: any[] = [];
   public notePlayed: boolean = false;
+  public noteActive: Array<any>;
+  public userStop: boolean;
 
   public Octave = (note: any) => {
     let result: any[] = []
@@ -59,15 +61,8 @@ export class AccordPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public audioProvider: AudioProvider) {
     this.note = this.navParams.get('note');
-
-
-
-
     console.log(this.note);
-
-    // console.log(this.note.frequence);
     console.log(this.nbOctave[3]);
-
   }
 
 
@@ -81,6 +76,12 @@ export class AccordPage {
 
   }
 
+
+  initHarmony(){
+    this.octave = this.Octave(261.6255653005986);
+    this.loadAccord(this.note);
+    this.audioProvider.prepareAudioContext();
+  }
 
   public methodeOctave(note: any) {
     let result: any[] = []
@@ -133,28 +134,30 @@ export class AccordPage {
   }
 
   onPlay(note) {
+   // this.audioProvider.prepareAudioContext();
+    this.userStop = false;
     console.log(note);
+    //console.log(note.active);
+    
+
 
     this.noteSelected = note;
     if (!this.noteSelected.playing) {
       this.noteSelected.oscillator = this.audioProvider.playFrequence(note.frequence);
       this.noteSelected.playing = true;
       this.notePlayed = true;
+      note.active = !note.active;
     } else {
       this.noteSelected.oscillator.stop();
       this.noteSelected.playing = false;
       this.notePlayed = false;
+      note.active = !note.active;
     }
+   
   }
-  isActive(note) {
-    if (this.noteSelected != null) {
-      if (this.noteSelected.playing == true) {
-        return 'blue';
-      }
 
 
-    }
-  }
+
   /* onPlay(note) {
     this.note = note;
     if (!this.note.playing) {
@@ -173,7 +176,7 @@ export class AccordPage {
 
       this.nbOctaveIndex = 2;
       console.log(this.nbOctaveIndex);
-      this.ionViewDidLoad()
+      this.initHarmony();
 
     }
   }
@@ -183,8 +186,7 @@ export class AccordPage {
 
       this.nbOctaveIndex = 3;
       console.log(this.nbOctaveIndex);
-      this.ionViewDidLoad();
-
+      this.initHarmony();
     }
   }
 
@@ -195,12 +197,26 @@ export class AccordPage {
       this.nbOctaveIndex = 4;
       console.log(this.nbOctaveIndex);
     }
-    this.ionViewDidLoad();
+     this.initHarmony();
+    
   }
 
-  stopButton() {
+  stopButton(accord) {
+    console.log(this.accord);
+    this.accord.forEach(note => {
+      if(note.active){
+        note.active = !note.active;
+      }
+      
+    });
+    
+   // this.userStop = true;
+    console.log(this.note);
+    
     this.audioProvider.stopAll();
+    this.initHarmony();
   }
+
   ionViewWillLeave() {
     console.log(this.note);
     this.audioProvider.stopAll();

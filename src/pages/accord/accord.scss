@@ -18,9 +18,16 @@ page-accord {
          color: black;
        //flex-wrap: wrap;
     }
-    .blue{
+    .active{
         background-color: #00ccff;
        }
+       .stop{
+        background-color: #d9d9d9;
+       }
+    /* .blue{
+        background-color: #00ccff;
+       } */
+
     .buttonOctave{
         height: 10%;
         width: 100%;

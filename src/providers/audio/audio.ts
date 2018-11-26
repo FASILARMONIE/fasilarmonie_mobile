@@ -6,8 +6,8 @@ declare var webkitAudioContext
 declare var GainNode
 declare var OscillatorNode
 declare var Float32Array
-declare global{
-  interface Window { AudioContext: any, webkitAudioContext: any}
+declare global {
+  interface Window { AudioContext: any, webkitAudioContext: any }
 }
 
 @Injectable()
@@ -19,23 +19,23 @@ export class AudioProvider {
 
   constructor() {
     console.log('Hello AudioProvider Provider');
-   this.prepareAudioContext();
+    this.prepareAudioContext();
   }
 
-  prepareAudioContext(){
+  prepareAudioContext() {
     this.audioContext = new (window.AudioContext || window.webkitAudioContext)
     this.volume = this.audioContext.createGain()
     this.volume.connect(this.audioContext.destination)
     this.volume.gain.setTargetAtTime(0.05, this.audioContext.currentTime, 0.01)
   }
 
-prepareFrequence(hz: number = 440.0){
-  let oscillator = this.audioContext.createOscillator()
+  prepareFrequence(hz: number = 440.0) {
+    let oscillator = this.audioContext.createOscillator()
     oscillator.type = 'sine'
     oscillator.frequency.setTargetAtTime(hz, this.audioContext.currentTime, 0.01)
     this.oscillators.push(oscillator)
     return oscillator
-}
+  }
 
   playFrequence(hz: number = 440.0) {
     let oscillator = this.audioContext.createOscillator()
@@ -55,8 +55,8 @@ prepareFrequence(hz: number = 440.0){
     })
   }
 
-  stopAll(){
-   this.audioContext.suspend();
+  stopAll() {
+    this.audioContext.suspend();
   }
 
 }

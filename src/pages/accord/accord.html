@@ -15,25 +15,25 @@
 
 <ion-content padding >
   <!-- <div>{{note.index}} {{note.frequence}}</div> -->
-  <div class="accordContent">
-    <button class="noteButton"   ion-button *ngFor="let note of accord" (click)="onPlay(note)" [ngClass]="isActive(note)">
+  <ion-col>
+    <ion-row class="buttonOctave">
+      <button ion-button (click)="downOctave($event)">Diminuer</button>
+      <button ion-button (click)="originOctave($event)">Octave de base</button>
+      <button ion-button (click)="upOctave($event)">Augmenter</button>
+    </ion-row>
+  </ion-col>
+  <div class="accordContent" >
+    <button class="noteButton" ion-button *ngFor="let note of accord" (click)="onPlay(note)" [ngClass]="{'active': note.active, 'stop': userStop}">
        {{note.index}}
-          <br> {{note.frequence | number:'2.2-2'}}
+         <!--  <br> {{note.frequence | number:'2.2-2'}} -->
      
     </button>
+    <div>
+      <ion-col><ion-row>
+        <button ion-button (click)="stopButton(accord)">Stopper le son</button>
+      </ion-row></ion-col>
+  
+    </div>
   </div>
-  <div>
-    <!-- <ion-col><ion-row>
-      <button ion-button (click)="stopButton()">Stopper le son</button>
-    </ion-row></ion-col> -->
-    <ion-col>
-      <ion-row class="buttonOctave">
-        <button ion-button (click)="downOctave($event)">Diminuer</button>
-        <button ion-button (click)="originOctave($event)">Octave de base</button>
-        <button ion-button (click)="upOctave($event)">Augmenter</button>
-      </ion-row>
-    </ion-col>
-
-
-  </div>
+  
 </ion-content>

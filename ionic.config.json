@@ -1,10 +1,9 @@
 {
   "name": "fasilarmonie",
   "app_id": "",
-  
   "proxies":[{
     "path": "/api",
-    "proxyUrl": "https://accounts.spotify.com"
+    "proxyUrl": "https://accounts.spotify.com/api"
   }],
   "type": "ionic-angular",
   "integrations": {

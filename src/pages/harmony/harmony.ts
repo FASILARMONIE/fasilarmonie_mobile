@@ -19,6 +19,7 @@ export class HarmonyPage {
    */
   //TODO faire nettoyage
   public notes: any;
+  // public index = ['DO', 'DO#', 'RE', 'RE#', 'MI', 'FA', 'FA#', 'SOL', 'SOL#', 'LA', 'LA#', 'SI'];
   public index = ['DO', 'DO#', 'RE', 'RE#', 'MI', 'FA', 'FA#', 'SOL', 'SOL#', 'LA', 'LA#', 'SI'];
   public accordage = { index: 9, frequence: 440.0 };
   public indexLA: number = 9;
