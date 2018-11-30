@@ -18,41 +18,54 @@ page-home {
         margin: auto;
     }
     .logo_home {
+       // position: absolute;
+
         display: block;
         margin: 50px auto;
+        width: 200px;
+// display: inline-block;
+        height: 100px;
+        margin-bottom: 10px;
+        left: 0;
+        bottom: 0;
+      //  text-align: center;
     }
 
     .titre_home {
         color: #1f1f1f;
         text-align: center;
+        display: inline-block;
+        margin: 0px auto;
+        vertical-align: middle;
     }
 
     .btn_left_home button {
-        background-color: #2e93bd;
+        background-color: $darkBlue;
         bottom: 0;
         display: block;
-        height: 317px;
-        margin: 0;
-        padding: 0;
+        height: 250px;
+        margin:  1px 1px 1px 1px;
+        padding:0;
         position: absolute;
         width: 50%; 
-        border-radius: 2px;
+        border-radius: 5px;
     }
 
     .btn_left_home button:hover, .btn_right_home button:hover {
-        background: #fea621;
+        background: $darkOrange;
     }
 
     .btn_right_home button {
-        background-color: #2e93bd;
+        background-color: $darkBlue;
         bottom: 0;
         display: block;
-        height: 317px;
-        margin: 0;
+        height: 250px;
+        margin: 1px 1px 1px 1px;
         padding: 0;
         position: absolute;
         right: 0;
         width: 50%; 
+        border-radius: 5px;
     }
 
    

@@ -15,3 +15,22 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+//definition des couleur de thèmes
+$darkBlue: #2196F3;
+$darkOrange: #FFA000;
+
+html {
+	font-size: 62.5%;
+}
+
+ion-app.ios, ion-app.md {
+	font-family: 'Roboto', sans-serif;
+}
+
+.header-ios, .header-md, .toolbar-background-ios, .toolbar-background-md {
+	//background: $blueLight;
+	text-align: center;
+}
+
+
+
