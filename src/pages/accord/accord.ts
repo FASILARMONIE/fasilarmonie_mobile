@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 //import provider
 import { AudioProvider } from '../../providers/audio/audio';
+import { HomePage } from '../home/home';
 
 //import model
 
@@ -39,6 +40,10 @@ export class AccordPage {
   public nbOctave = [55, 110, 220, 440, 880, 1780];
   // public nbOctave = [{1:55},{2:110}, {3:220}, {4:440}, {5:880}, {6:1780}];
   public nbOctaveIndex = 3;
+  public octaveRef: Boolean = true;
+  public octaveUp: Boolean = false;
+  public octaveDown: Boolean = false;
+
 
   public octave: any[] = [];
   //declaration necessaire
@@ -77,7 +82,7 @@ export class AccordPage {
   }
 
 
-  initHarmony(){
+  initHarmony() {
     this.octave = this.Octave(261.6255653005986);
     this.loadAccord(this.note);
     this.audioProvider.prepareAudioContext();
@@ -134,11 +139,11 @@ export class AccordPage {
   }
 
   onPlay(note) {
-   // this.audioProvider.prepareAudioContext();
+    // this.audioProvider.prepareAudioContext();
     this.userStop = false;
     console.log(note);
     //console.log(note.active);
-    
+
 
 
     this.noteSelected = note;
@@ -153,7 +158,7 @@ export class AccordPage {
       this.notePlayed = false;
       note.active = !note.active;
     }
-   
+
   }
 
 
@@ -177,46 +182,58 @@ export class AccordPage {
       this.nbOctaveIndex = 2;
       console.log(this.nbOctaveIndex);
       this.initHarmony();
-
+      this.octaveRef = false;
+      this.octaveUp = false;
+      this.octaveDown = true;
     }
   }
   originOctave($event: any) {
     if ($event != null) {
       this.audioProvider.stopAll();
-
       this.nbOctaveIndex = 3;
       console.log(this.nbOctaveIndex);
       this.initHarmony();
+      this.octaveDown = false;
+      this.octaveUp = false;
+      if(!this.octaveRef){
+        this.octaveRef = true;
+      }
     }
   }
 
   upOctave($event: any) {
     if ($event != null) {
       this.audioProvider.stopAll();
-
       this.nbOctaveIndex = 4;
       console.log(this.nbOctaveIndex);
+      this.octaveRef = false;
+      this.octaveUp = true;
+      this.octaveDown = false;
     }
-     this.initHarmony();
-    
+    this.initHarmony();
+
   }
 
   stopButton(accord) {
     console.log(this.accord);
     this.accord.forEach(note => {
-      if(note.active){
+      if (note.active) {
         note.active = !note.active;
       }
-      
+
     });
-    
-   // this.userStop = true;
+
+    // this.userStop = true;
     console.log(this.note);
-    
+
     this.audioProvider.stopAll();
     this.initHarmony();
   }
 
+
+  goHome() {
+    this.navCtrl.setRoot(HomePage);
+  }
   ionViewWillLeave() {
     console.log(this.note);
     this.audioProvider.stopAll();

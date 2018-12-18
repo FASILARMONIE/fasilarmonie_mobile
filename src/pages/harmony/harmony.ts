@@ -6,6 +6,7 @@ import { NoteProvider } from '../../providers/note/note';
 import { AudioProvider } from '../../providers/audio/audio';
 import { AccordPage } from '../../pages/accord/accord';
 import { NgForm, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HomePage } from '../home/home';
 
 
 @IonicPage()
@@ -75,6 +76,9 @@ export class HarmonyPage {
     }
   }
 
+  goHome(){
+    this.navCtrl.setRoot(HomePage);
+  }
 
 
 }

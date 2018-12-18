@@ -1,21 +1,10 @@
 page-search {
-    .ion-card {
-        display: flex;
-    }
     .searchContent {
-        // position: absolute; // display: inline-block;
-        //transform: translateX(-50%);
-        //left: 50%;
-        //top: 15%;
-        /* width: 100%;
-        height: 100%; */
-        //  background: #dee0e2;
         padding: 50px;
         box-shadow: 0px 5px 22px -3px rgba(0, 0, 0, 0.3);
         position: fixed; // top: 70px;
         width: 100%;
         z-index: 1;
-       
     }
     .searchContentInput {
         // max-width: 100%;
@@ -24,10 +13,13 @@ page-search {
         vertical-align: middle;
         background: none;
         padding-left: 0;
-        width: 100%;
+        width: 98%;
         position: relative;
-        border: 1px solid grey; 
+        border: 1px solid grey;
         border-radius: 5px;
+        margin: 10px auto;
+        height: 10%;
+        margin: 10px 5px;
         ion-icon {
             font-size: 2em;
             color: grey;
@@ -40,7 +32,9 @@ page-search {
             position: absolute;
             top: 50%;
             left: 50%;
+            padding-left: 10px;
             transform: translate(-50%, -50%);
+            border: none !important;
         }
         /*  input {
             margin: 15px auto;
@@ -49,19 +43,33 @@ page-search {
             font-size: 1.3em; // border-radius: 2px;
         } */
     }
-    .result {
+    /* ion-card {
         display: flex;
-        flex-direction: row;
-        resize: horizontal;
+    } */
+    ion-card-content {
+        border: 1px solid grey;
+        border-radius: 3px;
+        margin: 2px 2px;
     }
-    .album {}
+    .result {
+        resize: horizontal;
+        display: flex;
+    }
+    .album {
+        height: 100%;
+        width: 100%;
+    }
     .trackInfo {
+        height: 50%;
+        width: 100%;
+        margin: 0 auto;
         text-align: center;
-        display: inline;
     }
     .keyMode {
+        height: 50%;
+        width: 100%;
+        margin: 0 auto;
         text-align: center;
-        display: inline;
     }
 }
 
@@ -79,4 +87,13 @@ page-search {
     display: block;
     width: 150px;
     margin: 15px auto;
+}
+
+.noResult {
+    width: 100%;
+    height: 100%;
+    color: grey;
+    text-align: center;
+    margin-top: 20%;
+    font-size: 1.5em;
 }

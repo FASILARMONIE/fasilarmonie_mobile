@@ -1,43 +1,76 @@
 page-accord {
-    .accordContent{
+    .accordContent {
         //position: absolute;
-        display: flex;
-        display: inline-block;
-        //transform: translateX(-50%);
-        top: 15%;
-        width: 100%;
-         height: 75%;
+        display: flex; //transform: translateX(-50%);
+        top: 15%; // width: 100%;
+        height: 75%;
         margin: auto 10px;
-
+        flex-wrap: wrap;
+        margin-top: 5%;
     }
-    .noteButton{
-       background-color: #d9d9d9;
-       
-         width: 45%;
-         height: 45%;
-         color: black;
-       //flex-wrap: wrap;
+    .noteButton {
+        background-color: $darkBlue;
+        width: 45% !important;
+        height: 45%;
+        color: white;
+        margin: 2px;
+        margin: 5px auto;
     }
-    .active{
-        background-color: #00ccff;
-       }
-       .stop{
-        background-color: #d9d9d9;
-       }
+    .noteButton>* {
+        flex: 45%;
+    }
+    .active {
+        background-color: $darkOrange;
+    }
     /* .blue{
         background-color: #00ccff;
        } */
-
-    .buttonOctave{
+    .buttonOctave {
+        margin-top: 10px;
         height: 10%;
         width: 100%;
-        .button{
-            background-color: #d9d9d9;
-            .blue{
-                background-color: #00ccff;
-                
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        .button {
+            width: 30%;
+            margin: 2px;
+            margin-bottom: 5px;
+            height: 100%;
+            background-color: $darkBlue;
+            color: white;
+            margin: 10px auto;
+            .blue {
+                background-color: $darkOrange;
             }
-            color: black;
+            .textButton{
+                padding: 7px 5px;
+            }
+            span {
+                display: block;
+                margin: 0 auto;
+            }
+            .icon {
+                color: white;
+                margin: 0 auto;
+                padding: 5px 5px;
+            }
+            &.active {
+                background-color: $darkOrange;
+            }
+        }
+        
+    }
+    .stop{
+        background-color: $darkBlue;
+    }
+    .stopButton {
+       // background-color: $darkBlue;
+        margin: 5px auto;
+        .button{
+            margin: 0 auto !important;
         }
     }
 }

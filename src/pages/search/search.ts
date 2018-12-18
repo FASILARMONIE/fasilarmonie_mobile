@@ -34,7 +34,8 @@ export class SearchPage {
   public accordage = { index: 9, frequence: 440.0 };
 
   public note: any;
-
+  public noResult: Boolean = false;
+  public userSearch: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public spotifyProvider: SpotifyProvider, public formBuilder: FormBuilder, public noteProvider: NoteProvider) {
     this.spotifyProvider.getToken();
@@ -53,19 +54,22 @@ export class SearchPage {
     if (this.trackData != null) {
       this.searchList = new Array<any>();
       console.log(this.trackData.value["content"]);
-      // this.trackSearch = this.trackData.value["content"];
+      this.userSearch = this.trackData.value["content"];
       this.spotifyProvider.getSearch(this.trackData.value["content"]).then(result => {
-        console.log(result);
-        this.searchList = result;
-        console.log(this.searchList);
+        if (result.length !== 0) {
+          console.log(result);
+          this.searchList = result;
+          console.log(this.searchList);
+        } else {
+          this.noResult = true;
+        }
+
       });
     }
     this.trackData.reset();
 
 
   }
-
-
 
   getKeyFromSpotify(data: any) {
 
@@ -109,12 +113,11 @@ export class SearchPage {
         break;
     }
   }
-  
+
 
   goAccord(data: any) {
-    this.note = {frequence: this.index[data.key], gammeSelected: data.mode};
-
-    this.navCtrl.push(AccordPage, { note: this.note});
+    this.note = { frequence: this.index[data.key], gammeSelected: data.mode };
+    this.navCtrl.push(AccordPage, { note: this.note });
 
   }
 }
