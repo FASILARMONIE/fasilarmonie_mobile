@@ -1,5 +1,12 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  ToastController
+} from "ionic-angular";
+import { TranslateService } from "@ngx-translate/core";
+import { HomePage } from "../home/home";
 
 /**
  * Generated class for the SettingsPage page.
@@ -10,16 +17,36 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-settings',
-  templateUrl: 'settings.html',
+  selector: "page-settings",
+  templateUrl: "settings.html"
 })
 export class SettingsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  public langs;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public translate: TranslateService,
+    public ToastCtrl: ToastController
+  ) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingsPage');
+    console.log("ionViewDidLoad SettingsPage");
   }
 
+  onSubmit() {
+    console.log(this.langs);
+    localStorage.setItem("langue", this.langs);
+    this.translate.instant(this.langs);
+    this.presentToast();
+    this.navCtrl.setRoot(HomePage);
+  }
+
+  presentToast() {
+    let toast = this.ToastCtrl.create({
+      message: this.translate.instant("page.setting.success"),
+      duration: 3000,
+      position: "bottom"
+    });
+    toast.present();
+  }
 }

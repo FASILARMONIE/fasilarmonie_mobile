@@ -1,39 +1,38 @@
-<!--
-  Generated template for the AccordPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>accord</ion-title>
-  </ion-navbar>
+    <!--     <ion-title>accord</ion-title>
+      
 
+ -->
+ 
+  
+  
+<!--  <div class="navbar-home" (click)="goHome()"> <ion-icon name="home"></ion-icon></div>
+ -->
+</ion-navbar>
 </ion-header>
 
-
-<ion-content padding >
+<ion-content padding class="content">
   <!-- <div>{{note.index}} {{note.frequence}}</div> -->
-  <ion-col>
-    <ion-row class="buttonOctave">
-      <button ion-button (click)="downOctave($event)">Diminuer</button>
-      <button ion-button (click)="originOctave($event)">Octave de base</button>
-      <button ion-button (click)="upOctave($event)">Augmenter</button>
-    </ion-row>
-  </ion-col>
-  <div class="accordContent" >
-    <button class="noteButton" ion-button *ngFor="let note of accord" (click)="onPlay(note)" [ngClass]="{'active': note.active, 'stop': userStop}">
-       {{note.index}}
-         <!--  <br> {{note.frequence | number:'2.2-2'}} -->
-     
-    </button>
-    <div>
-      <ion-col><ion-row>
-        <button ion-button (click)="stopButton(accord)">Stopper le son</button>
-      </ion-row></ion-col>
-  
-    </div>
+  <div class="buttonOctave">
+      <button ion-button (click)="downOctave($event)" [ngClass]="{'active': octaveDown}"><ion-icon class="icon" name="arrow-round-down"></ion-icon>
+        <span> 220 Htz</span>
+       </button>
+      <button ion-button (click)="originOctave($event)"  [ngClass]="{'active': octaveRef}"><div class="textButton">Octave</div>
+       <span>440 Htz</span>
+         </button>
+      <button ion-button (click)="upOctave($event)" [ngClass]="{'active': octaveUp}"><ion-icon class="icon" name="arrow-round-up"></ion-icon> <span>880 Htz </span>
+      </button>
   </div>
-  
+  <div class="accordContent">
+    <button class="noteButton" ion-button *ngFor="let note of accord" (click)="onPlay(note)" [ngClass]="{'active': note.active, 'stop': userStop}">
+      {{note.index}}
+      <!--  <br> {{note.frequence | number:'2.2-2'}} -->
+    </button>
+    
+  </div>
+  <div class="stopButton">
+          <button ion-button  (click)="stopButton(accord)">Stopper le son</button>
+    </div>
 </ion-content>

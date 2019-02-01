@@ -5,11 +5,8 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>search</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
@@ -27,50 +24,24 @@
   <!-- <ion-grid > -->
   <ion-card>
     <ion-list *ngFor="let result of searchList" class="result">
-      <button ion-item (click)="goAccord(result)">
-        <ion-col>
-          <img class="album" src="{{result.picture.url}}" alt="image_album" />
-        </ion-col>
-        <ion-col >
-          <div class="trackInfo">{{result.name}} <br>
-            {{result.artist}}
-
-          </div>
-        </ion-col>
-        <ion-col>
-          <div class="keyMode">{{getKeyFromSpotify(result.key)}} {{getModeFromSpotify(result.mode)}}</div>
-        </ion-col>
-      </button>
+      <ion-card-content (click)="goAccord(result)">
+        <ion-row no-padding>
+          <ion-col col-4>
+            <img class="album" src="{{result.picture.url}}" alt="image_album" />
+          </ion-col>
+          <ion-col col-8>
+            <div class="trackInfo">{{result.name}}
+              <br> {{result.artist}}
+            </div>
+            <br>
+            <div class="keyMode">{{getKeyFromSpotify(result.key)}} {{getModeFromSpotify(result.mode)}}</div>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
     </ion-list>
   </ion-card>
-  <!-- <ion-row>
-      <ion-col col-4>
-          <img src="{{result.picture.url}}" alt="image_album" width="100%" height="90%" />      </ion-col>
-      <ion-col col-4>
-       <p class="searchName"> {{result.name}}
-         <br>
-         {{result.artist}}
-       </p>
-      </ion-col>
-      <ion-col col-4>
-          <button ion-button class="noteButton"> {{getKeyFromSpotify(result.key)}} <br>{{getModeFromSpotify(result.mode)}} </button>      </ion-col>
-    </ion-row>
-  </ion-grid> -->
+
+  <div class="noResult" *ngIf="noResult">Nous n'avons pas de résulat pour "{{userSearch}}"</div>
 
 
-  <!-- 
-  <ion-card *ngFor="let result of searchList">
-    <img src="{{result.picture.url}}" alt="image_album" />
-    <ion-card-content>
-      <ion-card-title>
-        {{result.name}}
-      </ion-card-title>
-      <p>
-        {{result.artist}}
-
-
-      </p>
-      <button ion-button> {{getKeyFromSpotify(result.key)}} -{{result.mode}} </button>
-    </ion-card-content>
-  </ion-card> -->
 </ion-content>

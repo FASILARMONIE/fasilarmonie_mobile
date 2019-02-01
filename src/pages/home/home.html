@@ -1,11 +1,11 @@
 <ion-header>
   <ion-navbar>
      <!--  <img class="logo_home" src="../../assets/imgs/logo_home.png" alt="logo_home"> -->
-    <ion-buttons start>
-      <button ion-button menuToggle="left">
+    <!-- <ion-buttons> -->
+      <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-    </ion-buttons>
+   <!--  </ion-buttons> -->
     <!-- <ion-title>
       FASILA'rmonie
     </ion-title> -->
@@ -14,8 +14,10 @@
 
 <ion-content class="getStart">
   <div class="body">
-    <img class="logo_home" src="../../assets/imgs/logo_home.png" alt="logo_home">
-    <h1 class="titre_home">Connaissez-vous la tonalité de votre morceau ?</h1>
+    <img class="logo_home" src="assets/imgs/logo_home.png" alt="logo_home">
+    <h1 class="titre_home"> {{'test' | translate}}
+      {{'page.home.question' | translate}}
+      Connaissez-vous la tonalité de votre morceau ?</h1>
   </div>
   <div class="btn_left_home">
     <button ion-button full (click)="onHarmony()">OUI</button>

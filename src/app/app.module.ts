@@ -21,7 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { SearchPageModule } from '../pages/search/search.module';
 import { HTTP } from '@ionic-native/http';
 
-import { TranslateModule, TranslateService, TranslateLoader } from '@ngx-translate/core';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SettingsPage } from '../pages/settings/settings';
 
@@ -41,8 +41,8 @@ export function createTranslateLoader(http: HttpClient) {
     HarmonyPage,
     TabsPage,
     SearchPage,
-    AccordPage, 
-    SearchPage, 
+    AccordPage,
+    SearchPage,
     SettingsPage
   ],
   imports: [
@@ -67,8 +67,8 @@ export function createTranslateLoader(http: HttpClient) {
     HarmonyPage,
     TabsPage,
     SearchPage,
-    AccordPage, 
-    SearchPage, 
+    AccordPage,
+    SearchPage,
     SettingsPage
   ],
   providers: [

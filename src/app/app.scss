@@ -1,6 +1,5 @@
 // http://ionicframework.com/docs/theming/
 
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -16,21 +15,40 @@
 // automatically applied to the <body> element in the app.
 
 //definition des couleur de thèmes
-$darkBlue: #2196F3;
-$darkOrange: #FFA000;
+$darkBlue: #2196f3;
+$darkOrange: #ffa000;
+
 
 html {
-	font-size: 62.5%;
+  font-size: 62.5%;
 }
 
-ion-app.ios, ion-app.md {
-	font-family: 'Roboto', sans-serif;
+ion-app.ios,
+ion-app.md {
+  font-family: "Roboto", sans-serif;
 }
 
-.header-ios, .header-md, .toolbar-background-ios, .toolbar-background-md {
-	//background: $blueLight;
-	text-align: center;
+.header-ios,
+.header-md,
+.toolbar-background-ios,
+.toolbar-background-md {
+  text-align: center;
 }
 
+.fixed-content {
+}
 
-
+.navbar-home {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 30px;
+  .icon {
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    color: $darkBlue;
+    //border: 0.2px solid grey;
+  }
+}

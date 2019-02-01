@@ -6,6 +6,8 @@
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
+<!--     <div class="navbar-home" (click)="goHome()"> <ion-icon name="home"></ion-icon></div>
+ -->
     <!-- <ion-title>
       FASILA'rmonie
     </ion-title> -->
@@ -15,7 +17,7 @@
 
 <ion-content padding>
   <div class="harmonyContent">
-      <img class="logo_home" src="../../assets/imgs/logo_home.png" alt="logo_home">
+      <img class="logo_home" src="assets/imgs/logo_home.png" alt="logo_home">
     <form #f="ngForm" [formGroup]="tonaliteData" (ngSubmit)="onSubmit()">
       <ion-list>
         <div class="searchInput">
@@ -41,7 +43,7 @@
       </ion-list>
     </form>
   </div>
-  <!-- 
+  <!--
   <ion-list *ngIf="noteSelected">
     Affichage des notes
     <ion-item *ngFor="let note of accord" (click)="play(note)">

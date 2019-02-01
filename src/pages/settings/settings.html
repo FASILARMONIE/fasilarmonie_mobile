@@ -14,5 +14,20 @@
 
 
 <ion-content padding>
-
+  <ion-list radio-group [(ngModel)]="langs" name="langs">
+      <ion-list-header>Langue</ion-list-header>
+    <ion-item>
+       <ion-label>Français</ion-label>
+       <ion-radio value="fr"></ion-radio>
+      </ion-item>
+    <ion-item>
+       <ion-label>Anglais</ion-label>
+       <ion-radio value="en"></ion-radio>
+      </ion-item>
+    <ion-item>
+       <ion-label>Español</ion-label>
+       <ion-radio value="es"></ion-radio>
+      </ion-item>
+    </ion-list>
+    <button ion-button (click)="onSubmit()">Ok</button>
 </ion-content>

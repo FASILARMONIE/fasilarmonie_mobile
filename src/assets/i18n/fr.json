@@ -1,0 +1,23 @@
+{
+  "test": "essai",
+  "page": {
+    "button": {
+      "oui": "oui",
+      "non": "non"
+    },
+    "about": {},
+    "menu": {},
+    "home": {
+      "question": "Connaissez-vous la tonalité de votre morceau ?"
+    },
+    "accord": {},
+    "harmony": {},
+    "search": {
+      "placeholder": "Tapez ici le titre de votre chanson ...",
+      "buttonSearch": "Recherche"
+    },
+    "setting": {
+      "success": "Modification de langue réalisée"
+    }
+  }
+}
