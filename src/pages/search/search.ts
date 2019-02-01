@@ -26,7 +26,7 @@ export class SearchPage {
   public index = ['DO', 'DO#', 'RE', 'RE#', 'MI', 'FA', 'FA#', 'SOL', 'SOL#', 'LA', 'LA#', 'SI'];
 
   /* nouvelle version */
-  private trackData: FormGroup;
+  public trackData: FormGroup;
   public trackSearch: any;
   public searchList: Array<any>;
   public trackInfo = new Array();
@@ -109,7 +109,7 @@ export class SearchPage {
         break;
     }
   }
-  
+
 
   goAccord(data: any) {
     this.note = {frequence: this.index[data.key], gammeSelected: data.mode};
