@@ -35,8 +35,10 @@ export class SettingsPage {
 
   onSubmit() {
     console.log(this.langs);
-    localStorage.setItem("langue", this.langs);
-    this.translate.instant(this.langs);
+    this.translate.use(this.langs);
+    //localStorage.setItem("langue", this.langs);
+
+
     this.presentToast();
     this.navCtrl.setRoot(HomePage);
   }

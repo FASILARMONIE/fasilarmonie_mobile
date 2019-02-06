@@ -1,13 +1,13 @@
 {
   "page": {
     "button":{
-      "oui": "oui",
-      "non": "non"
+      "oui": "si",
+      "non": "no"
     },
     "about":{},
     "menu": {},
     "home": {
-      "questionTonalite": "Connaissez-vous la tonalité de votre morceau ?"
+      "question": "Conoce la tonalidad de tu cancion ?"
     },
     "accord":{},
     "harmony":{},

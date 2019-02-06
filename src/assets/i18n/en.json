@@ -1,13 +1,13 @@
 {
   "page": {
     "button":{
-      "oui": "oui",
-      "non": "non"
+      "oui": "yes",
+      "non": "no"
     },
     "about":{},
     "menu": {},
     "home": {
-      "questionTonalite": "Connaissez-vous la tonalité de votre morceau ?"
+      "question": "Do you know the key of your song ?"
     },
     "accord":{},
     "harmony":{},
@@ -16,7 +16,7 @@
       "buttonSearch": "Recherche"
     },
     "setting":{
-      "success":"Modification de langue réalisée"
+      "success":"Language modification recorded"
     }
   }
 }

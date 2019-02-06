@@ -32,8 +32,8 @@ export class SpotifyProvider {
 
   // private apiToken = 'https://accounts.spotify.com/api/token'//requests refresh and access tokens
    private apiToken = '/api/token'//requests refresh and access tokens
-  private client_id = 'ae9b361b38f84364914b802b28e6be74'; // Your client id
-  private client_secret = 'da6d927e1f9847318469a62b46818eb1'; // Your secret
+  private client_id = ''; // Your client id
+  private client_secret = ''; // Your secret
 
   private apiUrlSearch = "https://api.spotify.com/v1/search?q="
   private apiUrlIdKey = "	https://api.spotify.com/v1/audio-features/?ids="

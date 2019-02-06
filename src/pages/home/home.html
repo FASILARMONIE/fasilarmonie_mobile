@@ -15,15 +15,13 @@
 <ion-content class="getStart">
   <div class="body">
     <img class="logo_home" src="assets/imgs/logo_home.png" alt="logo_home">
-    <h1 class="titre_home"> {{'test' | translate}}
-      {{'page.home.question' | translate}}
-      Connaissez-vous la tonalité de votre morceau ?</h1>
+    <h1 class="titre_home">{{'page.home.question' | translate}}</h1>
   </div>
   <div class="btn_left_home">
-    <button ion-button full (click)="onHarmony()">OUI</button>
+    <button ion-button full (click)="onHarmony()">{{'page.button.oui' | translate}}</button>
   </div>
   <div class="btn_right_home">
-    <button ion-button (click)="onSearch()">NON</button>
+    <button ion-button (click)="onSearch()">{{'page.button.non' | translate}}</button>
   </div>
 </ion-content>
 <!--
