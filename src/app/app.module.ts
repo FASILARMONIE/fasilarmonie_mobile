@@ -24,6 +24,7 @@ import { HTTP } from '@ionic-native/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SettingsPage } from '../pages/settings/settings';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -53,6 +54,7 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserModule,
     IonicModule.forRoot(MyApp),
     FormsModule,
+    IonicStorageModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -82,8 +84,7 @@ export function createTranslateLoader(http: HttpClient) {
     SpotifyProvider,
     NoteProvider,
     ToolsMusicProvider,
-    HTTP
-
+    HTTP,
   ]
 })
 export class AppModule { }

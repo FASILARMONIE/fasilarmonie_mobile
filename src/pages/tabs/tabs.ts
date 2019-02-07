@@ -6,8 +6,8 @@ import { AboutPage } from '../about/about';
 
 @Component({
     selector: 'page-tabs',
-    template: `
-    <ion-tabs>
+   template: `
+      <ion-tabs>
     <ion-tab [root]="homePage" tabTitle="Accueil" tabIcon="home"></ion-tab>
     <ion-tab [root]="aboutPage" tabTitle="A propos" tabIcon="information"></ion-tab>
     </ion-tabs>

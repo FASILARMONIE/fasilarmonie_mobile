@@ -7,7 +7,10 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Settings</ion-title>
+    <ion-title>Langues</ion-title>
+    <button ion-button menuToggle  >
+        <ion-icon name="menu"></ion-icon>
+      </button>
   </ion-navbar>
 
 </ion-header>
@@ -15,7 +18,6 @@
 
 <ion-content padding>
   <ion-list radio-group [(ngModel)]="langs" name="langs">
-      <ion-list-header>Langue</ion-list-header>
     <ion-item>
        <ion-label>Français</ion-label>
        <ion-radio value="fr"></ion-radio>

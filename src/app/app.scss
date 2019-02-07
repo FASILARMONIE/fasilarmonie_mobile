@@ -17,7 +17,7 @@
 //definition des couleur de thèmes
 $darkBlue: #2196f3;
 $darkOrange: #ffa000;
-
+$white: #ffffff;
 
 html {
   font-size: 62.5%;
@@ -32,23 +32,50 @@ ion-app.md {
 .header-md,
 .toolbar-background-ios,
 .toolbar-background-md {
+  // background: $darkBlue;
+  text-align: center;
+}
+.bar-button-default-ios,
+.bar-button-default-md {
+  //	color: $white;
+  position: absolute;
+  color: #424242;
+  background-color: transparent;
+}
+
+.ios,
+.md {
+  .menu-inner {
+    background: $darkBlue;
+    overflow-y: auto;
+  }
+  .menu-content-reveal {
+    box-shadow: none;
+  }
+}
+
+.header-ios,
+.header-md,
+.toolbar-background-ios,
+.toolbar-background-md {
   text-align: center;
 }
 
 .fixed-content {
 }
 
-.navbar-home {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 30px;
-  .icon {
-    width: 30px;
+  .navbar-home {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
     height: 30px;
-    font-size: 30px;
-    color: $darkBlue;
-    //border: 0.2px solid grey;
+    .icon {
+      width: 30px;
+      height: 30px;
+      font-size: 30px;
+      color: $darkBlue;
+      //border: 0.2px solid grey;
+    }
   }
-}
+

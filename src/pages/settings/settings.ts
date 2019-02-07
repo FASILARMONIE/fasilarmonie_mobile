@@ -7,6 +7,7 @@ import {
 } from "ionic-angular";
 import { TranslateService } from "@ngx-translate/core";
 import { HomePage } from "../home/home";
+import { Storage } from "@ionic/storage";
 
 /**
  * Generated class for the SettingsPage page.
@@ -26,7 +27,8 @@ export class SettingsPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public translate: TranslateService,
-    public ToastCtrl: ToastController
+    public ToastCtrl: ToastController,
+    private storage: Storage
   ) {}
 
   ionViewDidLoad() {
@@ -36,11 +38,9 @@ export class SettingsPage {
   onSubmit() {
     console.log(this.langs);
     this.translate.use(this.langs);
-    //localStorage.setItem("langue", this.langs);
-
-
     this.presentToast();
     this.navCtrl.setRoot(HomePage);
+    this.storage.set("lang", this.langs);
   }
 
   presentToast() {
