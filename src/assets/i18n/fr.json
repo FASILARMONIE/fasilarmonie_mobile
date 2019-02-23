@@ -6,18 +6,55 @@
       "non": "non"
     },
     "about": {},
-    "menu": {},
+    "menu": {
+      "accueil": "Acceuil",
+      "comment": "Comment utiliser FASILA'rmonie",
+      "aPropos": "A propos",
+      "langues": "Langues"
+
+    },
     "home": {
       "question": "Connaissez-vous la tonalité de votre morceau ?"
     },
-    "accord": {},
-    "harmony": {},
+    "accord": {
+      "octave": "Octave",
+      "stopSon": "Stopper le son"
+    },
+    "harmony": {
+      "notes": "Notes",
+      "scaleNote":{
+        "DO": "DO",
+        "DO#": "DO#",
+        "RE": "RE",
+        "RE#": "RE#",
+        "MI": "MI",
+        "FA": "FA",
+        "FA#": "FA#",
+        "SOL": "SOL",
+        "SOL#": "SOL#",
+        "LA": "LA",
+        "LA#": "LA#",
+        "SI": "SI"
+      },
+      "gamme": "Gamme",
+      "scaleGamme":{
+        "majeur": "Majeur",
+        "mineur": "Mineur"
+      },
+      "boutonHarmonie": "Trouver l'harmonie"
+    },
     "search": {
       "placeholder": "Tapez ici le titre de votre chanson ...",
-      "buttonSearch": "Recherche"
+      "buttonSearch": "Recherche",
+      "noResult": "Nous n'avons pas de résultat pour "
+
     },
     "setting": {
-      "success": "Modification de langue réalisée"
+      "success": "Modification de langue réalisée",
+      "langues": "Langues",
+      "fr": "Français",
+      "en": "Anglais",
+      "es": "Espagnol"
     }
   }
 }

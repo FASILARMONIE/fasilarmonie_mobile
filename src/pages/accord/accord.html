@@ -19,7 +19,7 @@
       <button ion-button (click)="downOctave($event)" [ngClass]="{'active': octaveDown}"><ion-icon class="icon" name="arrow-round-down"></ion-icon>
         <span> 220 Htz</span>
        </button>
-      <button ion-button (click)="originOctave($event)"  [ngClass]="{'active': octaveRef}"><div class="textButton">Octave</div>
+      <button ion-button (click)="originOctave($event)"  [ngClass]="{'active': octaveRef}"><div class="textButton">{{'page.accord.octave' | translate}}</div>
        <span>440 Htz</span>
          </button>
       <button ion-button (click)="upOctave($event)" [ngClass]="{'active': octaveUp}"><ion-icon class="icon" name="arrow-round-up"></ion-icon> <span>880 Htz </span>
@@ -27,12 +27,12 @@
   </div>
   <div class="accordContent">
     <button class="noteButton" ion-button *ngFor="let note of accord" (click)="onPlay(note)" [ngClass]="{'active': note.active, 'stop': userStop}">
-      {{note.index}}
+      {{ 'page.harmony.scaleNote.' + note.index | translate}}
       <!--  <br> {{note.frequence | number:'2.2-2'}} -->
     </button>
 
   </div>
   <div class="stopButton">
-          <button ion-button  (click)="stopButton(accord)">Stopper le son</button>
+          <button ion-button  (click)="stopButton(accord)">{{'page.accord.stopSon' | translate}}</button>
     </div>
 </ion-content>

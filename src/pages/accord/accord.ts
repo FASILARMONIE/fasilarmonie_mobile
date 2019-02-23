@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 //import provider
 import { AudioProvider } from '../../providers/audio/audio';
 import { HomePage } from '../home/home';
+import { TranslateService } from '@ngx-translate/core';
 
 //import model
 
@@ -64,7 +65,7 @@ export class AccordPage {
     return result
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public audioProvider: AudioProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public audioProvider: AudioProvider, public translate: TranslateService) {
     this.note = this.navParams.get('note');
     console.log(this.note);
     console.log(this.nbOctave[3]);
@@ -105,7 +106,7 @@ export class AccordPage {
     if (typeof note.frequence == "string") {
       /* for (let index = 0; index < this.octave.length; index++) {
        if(this.octave[index].include(this.note.frequence))
-        
+
       } */
       this.octave.forEach(element => {
         console.log(element);

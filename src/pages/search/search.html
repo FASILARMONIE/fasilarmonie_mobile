@@ -16,9 +16,9 @@
 
       <div class="searchContentInput">
         <ion-icon name="search"></ion-icon>
-        <input type="text" formControlName="content" placeholder="tapez le titre de votre chanson...">
+        <input type="text" formControlName="content" placeholder="{{'page.search.placeholder' | translate}}">
       </div>
-      <button ion-button block>Recherche</button>
+      <button ion-button block>{{'page.search.buttonSearch' | translate}}</button>
     </form>
   </div>
   <!-- <ion-grid > -->
@@ -41,7 +41,7 @@
     </ion-list>
   </ion-card>
 
-  <div class="noResult" *ngIf="noResult">Nous n'avons pas de résulat pour "{{userSearch}}"</div>
+  <div class="noResult" *ngIf="noResult">{{'page.search.noResult' | translate}}"{{userSearch}}"</div>
 
 
 </ion-content>

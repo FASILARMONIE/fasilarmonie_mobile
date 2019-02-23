@@ -38,9 +38,9 @@ export class SettingsPage {
   onSubmit() {
     console.log(this.langs);
     this.translate.use(this.langs);
-    this.presentToast();
     this.navCtrl.setRoot(HomePage);
     this.storage.set("lang", this.langs);
+    this.presentToast();
   }
 
   presentToast() {

@@ -39,16 +39,16 @@ export class MyApp {
     this.pages = [
       { title: "accueil", icon: "home", component: HomePage },
       {
-        title: "comment utiliser FASILA'rmonie",
+        title: "comment",
         icon: "help",
         component: HowtousePage
       },
       {
-        title: "A propos",
+        title: "aPropos",
         icon: "information-circle-outline",
         component: AboutPage
       },
-      { title: "Langues", icon: "settings", component: SettingsPage }
+      { title: "langues", icon: "settings", component: SettingsPage }
     ];
   }
 

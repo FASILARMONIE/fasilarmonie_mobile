@@ -7,6 +7,7 @@ import { AudioProvider } from '../../providers/audio/audio';
 import { AccordPage } from '../../pages/accord/accord';
 import { NgForm, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HomePage } from '../home/home';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @IonicPage()
@@ -45,7 +46,7 @@ export class HarmonyPage {
 
   public tonaliteData: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public noteProvider: NoteProvider, public audioProvider: AudioProvider, private FormBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public noteProvider: NoteProvider, public audioProvider: AudioProvider, private FormBuilder: FormBuilder, public translate: TranslateService) {
     this.tonaliteData = this.FormBuilder.group({
       frequence: ['', Validators.compose([Validators.required])],
       gammeSelected: ['', Validators.compose([Validators.required])]
@@ -62,7 +63,7 @@ export class HarmonyPage {
     this.octave = this.Octave(261.6255653005986)
   }
 
-/* 
+/*
   choixNote(note: any) {
     console.log(note);
     this.navCtrl.push(AccordPage, { note: note })

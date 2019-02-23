@@ -5,6 +5,7 @@ import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import 'rxjs/add/operator/map';
 import { NoteProvider } from '../../providers/note/note';
 import { AccordPage } from '../accord/accord';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Generated class for the SearchPage page.
@@ -37,7 +38,7 @@ export class SearchPage {
   public noResult: Boolean = false;
   public userSearch: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public spotifyProvider: SpotifyProvider, public formBuilder: FormBuilder, public noteProvider: NoteProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public spotifyProvider: SpotifyProvider, public formBuilder: FormBuilder, public noteProvider: NoteProvider, public translate: TranslateService) {
     this.spotifyProvider.getToken();
 
     this.trackData = this.formBuilder.group({
@@ -75,29 +76,29 @@ export class SearchPage {
 
     switch (data) {
       case 0:
-        return 'DO';
+        return this.translate.instant('page.harmony.scaleNote.DO');
       case 1:
-        return 'DO#'
+        return this.translate.instant('page.harmony.scaleNote.DO#');
       case 2:
-        return 'RE';
+        return this.translate.instant('page.harmony.scaleNote.RE');
       case 3:
-        return 'RE#';
+        return this.translate.instant('page.harmony.scaleNote.RE#');
       case 4:
-        return 'MI';
+        return this.translate.instant('page.harmony.scaleNote.MI');
       case 5:
-        return 'FA';
+        return this.translate.instant('page.harmony.scaleNote.FA');
       case 6:
-        return 'FA#';
+        return this.translate.instant('page.harmony.scaleNote.FA#');
       case 7:
-        return 'SOL';
+        return this.translate.instant('page.harmony.scaleNote.SOL');
       case 8:
-        return 'SOL#';
+        return this.translate.instant('page.harmony.scaleNote.SOL#');
       case 9:
-        return 'LA';
+        return this.translate.instant('page.harmony.scaleNote.LA');
       case 10:
-        return 'LA#';
+        return this.translate.instant('page.harmony.scaleNote.LA#');
       case 11:
-        return 'SI';
+        return this.translate.instant('page.harmony.scaleNote.SI');
       default:
         break;
     }
@@ -106,9 +107,9 @@ export class SearchPage {
   getModeFromSpotify(data: any) {
     switch (data) {
       case 0:
-        return 'Mineur'
+        return this.translate.instant('page.harmony.scaleGamme.mineur');
       case 1:
-        return 'Majeur'
+        return this.translate.instant('page.harmony.scaleGamme.majeur')
       default:
         break;
     }

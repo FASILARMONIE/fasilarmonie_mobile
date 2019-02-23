@@ -23,22 +23,22 @@
         <div class="searchInput">
           <ion-item>
             <ion-label>
-              Notes
+              {{'page.harmony.notes' | translate}}
             </ion-label>
             <ion-select formControlName="frequence">
-              <ion-option *ngFor="let note of octave" value="{{note.frequence}}">{{note.index}}</ion-option>
+              <ion-option *ngFor="let note of octave" value="{{note.frequence}}">{{ 'page.harmony.scaleNote.' + note.index | translate}}</ion-option>
             </ion-select>
             <!-- </ion-item>
        <ion-item *ngFor="let note of octave"  (click)="choixNote(note)"> {{note.index}} {{note.frequence}}   -->
           </ion-item>
           <ion-item>
-            <ion-label>Gamme</ion-label>
+            <ion-label>  {{'page.harmony.gamme' | translate}}</ion-label>
             <ion-select formControlName="gammeSelected">
-              <ion-option value="1">Majeur</ion-option>
-              <ion-option value="0">Mineur</ion-option>
+              <ion-option value="1"> {{'page.harmony.scaleGamme.majeur' | translate}}</ion-option>
+              <ion-option value="0"> {{'page.harmony.scaleGamme.mineur' | translate}}</ion-option>
             </ion-select>
           </ion-item>
-          <button ion-button [disabled]="!tonaliteData.valid">Trouvez l'harmonie</button>
+          <button ion-button [disabled]="!tonaliteData.valid">{{'page.harmony.boutonHarmonie' | translate}}</button>
         </div>
       </ion-list>
     </form>

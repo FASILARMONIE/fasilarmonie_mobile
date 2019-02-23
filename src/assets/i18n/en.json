@@ -5,18 +5,67 @@
       "non": "no"
     },
     "about":{},
-    "menu": {},
+    "menu": {
+      "accueil": "Home",
+      "comment": "How to use FASILA'rmonie",
+      "aPropos": "About us",
+      "langues": "Languages"
+    },
     "home": {
       "question": "Do you know the key of your song ?"
     },
-    "accord":{},
-    "harmony":{},
+    "accord": {
+      "octave": "Octave",
+      "stopSon": "Shut down the sound"
+    },
+    "harmony":{
+      "notes": "Notes",
+      "scaleNote":{
+        "DO": "C",
+        "DO#": "C#",
+        "RE": "D",
+        "RE#": "D#",
+        "MI": "E",
+        "FA": "F",
+        "FA#": "F#",
+        "SOL": "G",
+        "SOL#": "G#",
+        "LA": "A",
+        "LA#": "A#",
+        "SI": "B"
+      },
+      "gamme": "Scale",
+      "scaleGamme":{
+        "majeur": "Major",
+        "mineur": "Minor"
+      },
+      "boutonHarmonie": "Find the harmony"
+
+    },
+    "scaleNote":{
+      "DO": "C",
+      "DO#": "C#",
+      "RE": "D",
+      "RE#": "D#",
+      "MI": "E",
+      "FA": "F",
+      "FA#": "F#",
+      "SOL": "G",
+      "SOL#": "G#",
+      "LA": "A",
+      "LA#": "A#",
+      "SI": "B"
+    },
     "search":{
-      "placeholder": "Tapez ici le titre de votre chanson ...",
-      "buttonSearch": "Recherche"
+      "placeholder": "Write here the title of your song ...",
+      "buttonSearch": "Search",
+      "noResult": "We don't have result for "
     },
     "setting":{
-      "success":"Language modification recorded"
+      "success":"Language modification recorded",
+      "fr": "French",
+      "en": "English",
+      "es": "Spanish"
     }
   }
 }

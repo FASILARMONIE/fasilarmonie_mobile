@@ -9,7 +9,7 @@
 
         <ion-list>
           <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-              <ion-icon name="{{p.icon}}" item-left></ion-icon> <span>{{p.title}}</span>
+              <ion-icon name="{{p.icon}}" item-left></ion-icon> <span>{{ 'page.menu.'+p.title | translate}}</span>
 
               <!-- <span>{{p.title | translate}}</span> -->
           </button>

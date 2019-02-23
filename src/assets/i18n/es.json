@@ -5,18 +5,54 @@
       "non": "no"
     },
     "about":{},
-    "menu": {},
-    "home": {
-      "question": "Conoce la tonalidad de tu cancion ?"
+    "menu": {
+      "accueil": "Home",
+      "comment": "Cómo utilizar FASILA'rmonie",
+      "aPropos": "A propósito",
+      "langues": "Idiomas"
     },
-    "accord":{},
-    "harmony":{},
+    "home": {
+      "question": "Conoce la tonalidad de tu canción ?"
+    },
+    "accord": {
+      "octave": "Octava",
+      "stopSon": "Detener el sonudo"
+    },
+    "harmony":{
+      "notes": "Notas",
+      "scaleNote":{
+        "DO": "C",
+        "DO#": "C#",
+        "RE": "D",
+        "RE#": "D#",
+        "MI": "E",
+        "FA": "F",
+        "FA#": "F#",
+        "SOL": "G",
+        "SOL#": "G#",
+        "LA": "A",
+        "LA#": "A#",
+        "SI": "B"
+      },
+      "gamme": "Escala",
+      "scaleGamme":{
+        "majeur": "Mayor",
+        "mineur": "Menor"
+      },
+      "boutonHarmonie": "hallar la armonía"
+
+    },
     "search":{
-      "placeholder": "Tapez ici le titre de votre chanson ...",
-      "buttonSearch": "Recherche"
+      "placeholder": "Escribe aquí tu canción ...",
+      "buttonSearch": "Buscar",
+      "noResult": "No resultado para "
+
     },
     "setting":{
-      "success":"Modification de langue réalisée"
+      "success":"Idioma cambiado",
+      "fr": "Frencés",
+      "en": "Inglés",
+      "es": "Español"
     }
   }
 }

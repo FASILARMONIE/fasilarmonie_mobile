@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Langues</ion-title>
+    <ion-title>{{'page.setting.langues' | translate}}</ion-title>
     <button ion-button menuToggle  >
         <ion-icon name="menu"></ion-icon>
       </button>
@@ -19,15 +19,15 @@
 <ion-content padding>
   <ion-list radio-group [(ngModel)]="langs" name="langs">
     <ion-item>
-       <ion-label>Français</ion-label>
+       <ion-label>{{'page.setting.fr' | translate}}</ion-label>
        <ion-radio value="fr"></ion-radio>
       </ion-item>
     <ion-item>
-       <ion-label>Anglais</ion-label>
+       <ion-label>{{'page.setting.en' | translate}}</ion-label>
        <ion-radio value="en"></ion-radio>
       </ion-item>
     <ion-item>
-       <ion-label>Español</ion-label>
+       <ion-label>{{'page.setting.es' | translate}}</ion-label>
        <ion-radio value="es"></ion-radio>
       </ion-item>
     </ion-list>
