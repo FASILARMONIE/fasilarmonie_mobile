@@ -20,6 +20,7 @@ declare var app: any;
 @Injectable()
 export class SpotifyProvider {
   public token: any;
+  public error: Boolean = false;
 
   private idString: any;
   private idTracks: Array<any> = new Array<any>();
@@ -31,7 +32,7 @@ export class SpotifyProvider {
 
 
   // private apiToken = 'https://accounts.spotify.com/api/token'//requests refresh and access tokens
-   private apiToken = '/api/token'//requests refresh and access tokens
+  private apiToken = '/api/token'//requests refresh and access tokens
   private client_id = ''; // Your client id
   private client_secret = ''; // Your secret
 
@@ -64,6 +65,7 @@ export class SpotifyProvider {
         this.token = data["access_token"];
       }, error => {
         console.log('error : ', JSON.stringify(error));
+        this.error = true;
         //recherche du token refresh
       }, () => {
         console.log('completed');
@@ -79,7 +81,7 @@ export class SpotifyProvider {
         'Authorization': 'Bearer ' + this.token
       })
     };
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       this.http.get(this.apiUrlSearch + searchTerm + '&type=track&limit=5', this.httpOptions)
         .subscribe(
           result => {
@@ -132,8 +134,13 @@ export class SpotifyProvider {
                 resolve(array3)
               }
             )
+          }, reject =>{
+            console.log('erreur 401');
+
+
           });
-    });
+    }
+    );
   }
 
 }

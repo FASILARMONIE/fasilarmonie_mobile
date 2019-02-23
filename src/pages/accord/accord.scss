@@ -1,76 +1,88 @@
 page-accord {
-    .accordContent {
-        //position: absolute;
-        display: flex; //transform: translateX(-50%);
-        top: 15%; // width: 100%;
-        height: 75%;
-        margin: auto 10px;
-        flex-wrap: wrap;
-        margin-top: 5%;
-    }
-    .noteButton {
-        background-color: $darkBlue;
-        width: 45% !important;
-        height: 45%;
-        color: white;
-        margin: 2px;
-        margin: 5px auto;
-    }
-    .noteButton>* {
-        flex: 45%;
-    }
-    .active {
-        background-color: $darkOrange;
-    }
-    /* .blue{
+  .content {
+    background: url('../assets/imgs/essai.jpg') no-repeat center center fixed;
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+    background-size: cover;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+
+  }
+  .accordContent {
+    //position: absolute;
+    display: flex; //transform: translateX(-50%);
+    top: 15%; // width: 100%;
+    height: 75%;
+    margin: auto 10px;
+    flex-wrap: wrap;
+    margin-top: 5%;
+  }
+  .noteButton {
+    background-color: $darkBlue;
+    width: 45% !important;
+    height: 45%;
+    color: white;
+    margin: 2px;
+    margin: 5px auto;
+  }
+  .noteButton > * {
+    flex: 45%;
+  }
+  .active {
+    background-color: $darkOrange;
+  }
+  /* .blue{
         background-color: #00ccff;
        } */
-    .buttonOctave {
-        margin-top: 10px;
-        height: 10%;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        text-align: center;
-        margin: 0;
-        padding: 0;
-        .button {
-            width: 30%;
-            margin: 2px;
-            margin-bottom: 5px;
-            height: 100%;
-            background-color: $darkBlue;
-            color: white;
-            margin: 10px auto;
-            .blue {
-                background-color: $darkOrange;
-            }
-            .textButton{
-                padding: 7px 5px;
-            }
-            span {
-                display: block;
-                margin: 0 auto;
-            }
-            .icon {
-                color: white;
-                margin: 0 auto;
-                padding: 5px 5px;
-            }
-            &.active {
-                background-color: $darkOrange;
-            }
-        }
-        
+  .buttonOctave {
+    margin-top: 10px;
+    height: 10%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    .button {
+      width: 30%;
+      margin: 2px;
+      margin-bottom: 5px;
+      height: 100%;
+      background-color: $darkBlue;
+      color: white;
+      margin: 10px auto;
+      .blue {
+        background-color: $darkOrange;
+      }
+      .textButton {
+        padding: 7px 5px;
+      }
+      span {
+        display: block;
+        margin: 0 auto;
+      }
+      .icon {
+        color: white;
+        margin: 0 auto;
+        padding: 5px 5px;
+      }
+      &.active {
+        background-color: $darkOrange;
+      }
     }
-    .stop{
-        background-color: $darkBlue;
+  }
+  .stop {
+    background-color: $darkBlue;
+  }
+  .stopButton {
+    // background-color: $darkBlue;
+    margin: 5px auto;
+    .button {
+      margin: 0 auto !important;
     }
-    .stopButton {
-       // background-color: $darkBlue;
-        margin: 5px auto;
-        .button{
-            margin: 0 auto !important;
-        }
-    }
+  }
 }

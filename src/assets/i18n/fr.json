@@ -46,7 +46,8 @@
     "search": {
       "placeholder": "Tapez ici le titre de votre chanson ...",
       "buttonSearch": "Recherche",
-      "noResult": "Nous n'avons pas de résultat pour "
+      "noResult": "Nous n'avons pas de résultat pour ",
+      "error": ""
 
     },
     "setting": {

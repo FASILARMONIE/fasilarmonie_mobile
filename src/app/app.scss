@@ -19,15 +19,21 @@ $darkBlue: #2196f3;
 $darkOrange: #ffa000;
 $white: #ffffff;
 
+
+
 html {
   font-size: 62.5%;
+
 }
 
 ion-app.ios,
 ion-app.md {
   font-family: "Roboto", sans-serif;
 }
-
+/*
+.content{
+  background: url('../assets/imgs/essai.jpg') no-repeat center center fixed;
+} */
 .header-ios,
 .header-md,
 .toolbar-background-ios,
@@ -62,20 +68,24 @@ ion-app.md {
 }
 
 .fixed-content {
+
+}
+.scroll-content {
+  overflow-x: unset;
+  overflow-y: unset;
 }
 
-  .navbar-home {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
+.navbar-home {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 30px;
+  .icon {
+    width: 30px;
     height: 30px;
-    .icon {
-      width: 30px;
-      height: 30px;
-      font-size: 30px;
-      color: $darkBlue;
-      //border: 0.2px solid grey;
-    }
+    font-size: 30px;
+    color: $darkBlue;
+    //border: 0.2px solid grey;
   }
-
+}

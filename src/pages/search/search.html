@@ -10,8 +10,8 @@
 </ion-header>
 
 
-<ion-content padding class="searchContent">
-  <div >
+<ion-content padding class="content">
+  <div  class="searchContent">
     <form #f="ngForm" [formGroup]="trackData" (ngSubmit)="onSubmit()">
 
       <div class="searchContentInput">
@@ -20,7 +20,6 @@
       </div>
       <button ion-button block>{{'page.search.buttonSearch' | translate}}</button>
     </form>
-  </div>
   <!-- <ion-grid > -->
   <ion-card>
     <ion-list *ngFor="let result of searchList" class="result">
@@ -40,7 +39,7 @@
       </ion-card-content>
     </ion-list>
   </ion-card>
-
+</div>
   <div class="noResult" *ngIf="noResult">{{'page.search.noResult' | translate}}"{{userSearch}}"</div>
 
 
