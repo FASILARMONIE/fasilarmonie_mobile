@@ -76,7 +76,7 @@ export class SearchPage {
   ionViewDidLoad() {
     console.log("ionViewDidLoad SearchPage");
     if (this.spotifyProvider.error === true) {
-      this.navCtrl.push(HomePage);
+      this.navCtrl.setRoot(HomePage);
       this.presentToast();
     }
   }

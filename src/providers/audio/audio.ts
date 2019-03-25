@@ -49,14 +49,17 @@ export class AudioProvider {
 
   stop() {
     this.oscillators.map(oscillator => {
-      oscillator.stop(this.audioContext.currentTime)
+      console.log(oscillator);
+
+     // oscillator.stop(this.audioContext.currentTime)
       oscillator.disconnect()
       oscillator = null
     })
   }
 
   stopAll() {
-    this.audioContext.suspend();
+this.audioContext.suspend();
+//  this.audioContext.close();
   }
 
 }

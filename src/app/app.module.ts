@@ -26,14 +26,14 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SettingsPage } from '../pages/settings/settings';
 import { IonicStorageModule } from '@ionic/storage';
 
-
+/*
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
+}*/
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
-/*
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-} */
 
 
 @NgModule({
