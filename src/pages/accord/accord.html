@@ -16,23 +16,24 @@
 <ion-content padding class="content">
   <!-- <div>{{note.index}} {{note.frequence}}</div> -->
   <div class="buttonOctave">
-      <button ion-button (click)="downOctave($event)" [ngClass]="{'active': octaveDown}"><ion-icon class="icon" name="arrow-round-down"></ion-icon>
-        <span> 220 Htz</span>
-       </button>
-      <button ion-button (click)="originOctave($event)"  [ngClass]="{'active': octaveRef}"><div class="textButton">{{'page.accord.octave' | translate}}</div>
+      <button ion-button (click)="downOctave($event)" fill="clear" [ngClass]="{'active': octaveDown}"><ion-icon class="iconOctave"  (click)="downOctave($event)" name="arrow-round-down"></ion-icon>
+       <!--  <span> 220 Htz</span>
+       -->
+      </button>
+     <button ion-button (click)="originOctave($event)"  [ngClass]="{'active': octaveRef}"><div class="textButton">{{'page.accord.octave' | translate}}</div>
        <span>440 Htz</span>
          </button>
-      <button ion-button (click)="upOctave($event)" [ngClass]="{'active': octaveUp}"><ion-icon class="icon" name="arrow-round-up"></ion-icon> <span>880 Htz </span>
+      <button ion-button (click)="upOctave($event)" [ngClass]="{'active': octaveUp}"><ion-icon class="iconOctave"  name="arrow-round-up"></ion-icon> <!-- <span>880 Htz </span> -->
       </button>
   </div>
   <div class="accordContent">
-    <button class="noteButton" ion-button *ngFor="let note of accord" (click)="onPlay(note)" [ngClass]="{'active': note.active, 'stop': userStop}">
-      {{ 'page.harmony.scaleNote.' + note.index | translate}}
+    <button class="noteButton" fill="clear" ion-button *ngFor="let note of accord" (click)="onPlay(note)" [ngClass]="{'active': note.active, 'stop': userStop}">
+      <p>{{ 'page.harmony.scaleNote.' + note.index | translate}}</p>
       <!--  <br> {{note.frequence | number:'2.2-2'}} -->
     </button>
 
   </div>
   <div class="stopButton">
-          <button ion-button  (click)="stopButton(accord)">{{'page.accord.stopSon' | translate}}</button>
+          <button ion-button shape="round" fill="outline"  (click)="stopButton(accord)"><!-- {{'page.accord.stopSon' | translate}} --> <ion-icon name="square"></ion-icon></button>
     </div>
 </ion-content>
